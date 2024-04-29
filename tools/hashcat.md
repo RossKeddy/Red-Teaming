@@ -7,7 +7,6 @@ https://www.notsosecure.com/one-rule-to-rule-them-all/
 # It is supposed to make the computer unusable during the cracking process
 # Finnally, use both the GPU and CPU to handle the cracking
 --force -O -w 4 --opencl-device-types 1,2
-
 ```
 ### Wrapcat - Automating hashcat commands
 ```

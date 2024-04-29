@@ -14,5 +14,5 @@ nmap -A -sC -sV -T5 -p- 10.129.142.35
 
 nmap udp scan
 ```
-sudo nmap -p1-500 -sU 10.129.142.35
+sudo nmap -p1-500 -sU -T5- 10.129.196.125
 ```

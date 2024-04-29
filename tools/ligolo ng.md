@@ -13,5 +13,5 @@ go into ligolo select the session
 
 enter start after selecting the session
 
-sudo ip route add 192.168.100.0/24 dev ligolo
+sudo ip route add 10.129.195.229/24 dev ligolo
 ```
