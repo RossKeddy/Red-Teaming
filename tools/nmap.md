@@ -8,7 +8,7 @@ nmap scan
 - -p- - Scan all ports
 
 ```
-nmap -A -sC -sV -T5 -p- 10.129.142.35
+nmap -A -sC -sV -T5 -Pn -p- 10.129.142.35
 ```
 
 

