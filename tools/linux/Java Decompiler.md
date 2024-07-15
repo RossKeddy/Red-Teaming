@@ -1,1 +1,1 @@
-jd-gui
+https://github.com/java-decompiler/jd-gui

