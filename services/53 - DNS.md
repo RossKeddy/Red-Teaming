@@ -8,6 +8,21 @@ https://securitytrails.com/blog/most-popular-types-dns-attacks
 # SOA
 dig soa www.inlanefreight.com
 
+# Reverse lookup
+dig -x 10.13.37.10 @10.13.37.10
+
+# Reverse SOA to find hidden domains
+nslookup               
+> server 10.13.37.10
+Default server: 10.13.37.10
+Address: 10.13.37.10#53
+> set type=SOA
+> 10.13.37.10
+Server:         10.13.37.10
+Address:        10.13.37.10#53
+
+10.37.13.10.in-addr.arpa        name = www.securewebinc.jet.
+
 # NS Query
 dig ns domain.com @10.129.14.128
 
@@ -21,7 +36,7 @@ dig any inlanefreight.htb @10.129.240.190
 dig axfr domain.com @10.129.14.128
 
 # Subdomain Bruteforce
-for sub in $(cat /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-110000.txt);do dig $sub.inlanefreight.htb @10.129.240.190 | grep -v ';\|SOA' | sed -r '/^\s*$/d' | grep $sub | tee -a subdomains.txt;done
+for sub in $(cat /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt);do dig $sub.inlanefreight.htb @10.129.240.190 | grep -v ';\|SOA' | sed -r '/^\s*$/d' | grep $sub | tee -a subdomains.txt;done
 ```
 
 ## DNSenum

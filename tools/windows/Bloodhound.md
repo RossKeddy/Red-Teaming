@@ -1,14 +1,19 @@
 
-https://github.com/BloodHoundAD/BloodHound
+https://github.com/SpecterOps/BloodHound
 
 > BloodHound (Javascript webapp, compiled with Electron, uses Neo4j as graph DBMS) is an awesome tool that allows mapping of relationships within Active Directory environments. It mostly uses Windows API functions and LDAP namespace functions to collect data from domain controllers and domain-joined Windows systems.
 ```bash
 # Install Dependancies
+sudo apt-get install openjdk-11-jdk
 sudo apt install -y neo4j
 sudo neo4j start
+sudo /usr/bin/neo4j console # For any debugging
+
+# Change password to neo5j
+http://localhost:7474/browser/
 
 unzip BloodHound-linux-x64.zip
-./BloodHound-linux-x64/BloodHound
+./BloodHound-linux-x64/BloodHound # may need --no-sandbox
 ```
 ## Collection
 ### Sharphound
@@ -18,7 +23,12 @@ https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors
 > 
 > It must be run from the context of a domain user, either directly through a logon or through another method such as runas (runas /netonly /user:$DOMAIN\$USER) (see Impersonation). Alternatively, SharpHound can be used with the LdapUsername and LdapPassword flags for that matter.
 ```powershell
+# EvilWinRM
+upload SharpHound.exe
+
 SharpHound.exe --collectionmethods All
+
+download ***.zip
 ```
 
 ### bloodhound.py

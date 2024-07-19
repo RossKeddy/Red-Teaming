@@ -6,7 +6,10 @@ It also implements various useful metafunctions, including some custom-written u
 
 For functions that enumerate multiple machines, pass the -Verbose flag to get a progress status as each host is enumerated. Most of the "meta" functions accept an array of hosts from the pipeline.
 
-```
+```powershell
+. ./PowerView.ps1
+Import-Module .\PowerView.ps1
+
 //  Create Credential Object
 $passwd = ConvertTo-SecureString "password" -AsPlainText -Force
 $creds = New-Object System.Management.Automation.PSCredential ("fakedomain\user", $passwd)
@@ -18,5 +21,5 @@ $comps = Get-NetComputer -Domain msp.local -Credential $creds
 Invoke-Command -ScriptBlock{hostname} -Computer ($comps.dnshostName) -Credential $creds -ErrorAction SilentlyContinue
 
 
-Import-Module .\PowerView.ps1
+
 ```
