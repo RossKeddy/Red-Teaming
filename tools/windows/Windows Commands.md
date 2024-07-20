@@ -30,6 +30,11 @@ netstat -aon
 arp -a
 ```
 
+Connect to a machine with admin perms
+```
+Enter-PSSession -Computername <computername>
+```
+
 Shortcuts
 ```Powershell
 $targetPath = "C:\xampp\htdocs\5shell.exe"

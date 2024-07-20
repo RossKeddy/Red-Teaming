@@ -50,12 +50,10 @@ Use PowerShell
 ```
 ### Am I tied up?
 Check LanguageMode. FullLanguage is nicer to have.  
-Use PowerShell
 ```powershell
 $ExecutionContext.SessionState.LanguageMode
 ```
 ### Anything reachable?
-Use PowerShell
 ```powershell
 Get-AppLockerPolicy -Effective
 Get-AppLockerPolicy -Effective | select -ExpandedProperty RuleCollections
@@ -76,4 +74,46 @@ Set-MpPreference -DisableRealTimeMonitoring $true
 Disable Windows Defender scanning for all files downloaded
 ```powershell
 Set-MpPreference -DisableIOAVProtection $true	
+```
+
+### Sniff for Credentials
+Common creds location, always in plaintext
+```powershell
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogin"
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
+```
+
+Look for interesting files that may contain creds
+```powershell
+dir /s SAM
+dir /s SYSTEM
+dir /s Unattend.xml
+```
+
+### Look Around
+```powershell
+#Starting, Restarting and Stopping services in Powershell
+Start-Service <service>
+Stop-Service <service>
+Restart-Service <service>
+
+#Powershell History
+Get-History
+(Get-PSReadlineOption).HistorySavePath #displays the path of consoleHost_history.txt
+type C:\Users\sathvik\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
+#Viewing installed execuatbles
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+
+#Process Information
+Get-Process
+Get-Process | Select ProcessName,Path
+
+#Sensitive info in XAMPP Directory
+Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue #this for a specific user
+
+#Service Information
+Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
 ```
