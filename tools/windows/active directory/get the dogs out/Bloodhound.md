@@ -1,5 +1,8 @@
-
 https://github.com/SpecterOps/BloodHound
+
+Let’s have the dog sniff things out because automated enumeration is cool
+
+The tools used are - [BloodHound](https://github.com/BloodHoundAD/BloodHound/releases/), [SharpHound.exe](https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors) or [SharpHound.ps1](https://www.noobsec.net/ad-cheatsheet/)
 
 > BloodHound (Javascript webapp, compiled with Electron, uses Neo4j as graph DBMS) is an awesome tool that allows mapping of relationships within Active Directory environments. It mostly uses Windows API functions and LDAP namespace functions to collect data from domain controllers and domain-joined Windows systems.
 ```bash
@@ -25,6 +28,9 @@ https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors
 ```powershell
 # EvilWinRM
 upload SharpHound.exe
+
+# Leverage LDAPS
+./SharpHound.exe --SecureLdap
 
 SharpHound.exe --collectionmethods All
 

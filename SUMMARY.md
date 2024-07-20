@@ -31,7 +31,7 @@
   * [linux](tools/linux/README.md)
     * [Linux Commands](<tools/linux/Linux Commands.md>)
   * [windows](tools/windows/README.md)
-    * [Bloodhound](tools/windows/Bloodhound.md)
+    * [Bloodhound](Bloodhound.md)
     * [AD CS](AD%20CS.md)
     * [Kerbrute](tools/windows/Kerbrute.md)
     * [RunasCs](tools/windows/RunasCs.md)
