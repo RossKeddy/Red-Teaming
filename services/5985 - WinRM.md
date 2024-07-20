@@ -1,6 +1,5 @@
-
-Evil-WinRM
-
+https://github.com/Hackplayers/evil-winrm
+## Evil-WinRM
 ```
 # Login with Hash
 evil-winrm -i 192.168.100.101 -u username -H hash

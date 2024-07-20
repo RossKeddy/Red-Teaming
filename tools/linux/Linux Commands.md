@@ -1,5 +1,14 @@
+File Transfers
+```bash
+# wget
+wget http://<ip>/file_name -O /path/to/save/file
 
+# Netcat
+nc -nv <ip> <port> > file/to/recv
 
+# cURL
+curl http://<ip>/file_name --output file_name
+```
 
 ```bash
 # Find useable Linux files

