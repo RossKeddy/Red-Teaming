@@ -2,4 +2,4 @@
  
 ### Ross Keddy's Notes
 
-Welcome to a repository of notes for OSCP studying.
+Welcome to a repository of notes for CTFs, PNPT, CPTS, OSCP.

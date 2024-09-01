@@ -1,4 +1,3 @@
-
 nmap scan
 - -A - OS detection
 - -sC - Default Scripts
