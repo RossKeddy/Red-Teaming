@@ -10,7 +10,9 @@ chisel server --reverse --socks5
 # Server on Custom Port
 chisel server --reverse --port 9001
 # Client
-chisel client <ip>:8080 R:3000:localhost:3000
+chisel client 10.10.16.48:8080 R:8200:localhost:8200
+
+chisel client 10.10.16.48:9001 R:8200:localhost:8200
 ```
 ## Proxychains
 ```bash
