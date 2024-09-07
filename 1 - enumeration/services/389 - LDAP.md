@@ -1,6 +1,6 @@
 # 389/636 -LDAP/S
 
-![[LDAP_auth.png]]
+![LDAP Diagram](../../assets/LDAP_auth.png)
 
 ---
 ### Enumeration
