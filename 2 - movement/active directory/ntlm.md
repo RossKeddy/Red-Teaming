@@ -1,0 +1,1 @@
+![NTLM Diagram](../../assets/ntlm_auth.png)

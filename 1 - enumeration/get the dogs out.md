@@ -3,7 +3,7 @@ https://github.com/SpecterOps/BloodHound
 
 ![Walking the Dog](../assets/WalkTheDog.png)
 
-Let’s have the dog sniff things out because automated enumeration is cool
+Let the dog sniff things out because automated enumeration is cool
 
 The tools used are - [BloodHound](https://github.com/BloodHoundAD/BloodHound/releases/), [SharpHound.exe](https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors) or [SharpHound.ps1](https://www.noobsec.net/ad-cheatsheet/)
 

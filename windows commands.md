@@ -19,6 +19,10 @@ List Network Connections
 netstat -aon
 
 arp -a
+
+ipconfig /all
+
+route print
 ```
 
 Connect to a machine with admin perms
@@ -105,6 +109,8 @@ Do you have admin privs?
 
 Disable Windows Defender real time monitoring
 ```powershell
+Get-MpComputerStatus
+
 Set-MpPreference -DisableRealTimeMonitoring $true	
 ```
 
