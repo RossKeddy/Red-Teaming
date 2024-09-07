@@ -2,11 +2,9 @@
 
 ### Red Teaming
 * [Welcome](red%20teaming/README.md)
-* [Linux Commands](linux%20commands.md)
-* [Windows Commands](windows%20commands.md)
 ---
 ### The Basics
-* **[Setup](0%20-%20setup/README.md)
+* [Setup](0%20-%20setup/README.md)
 	* [OSINT](0%20-%20setup/osint/README.md)
 		* [DORKS](0%20-%20setup/osint/dorks.md)
 		* [Shodan](0%20-%20setup/osint/shodan.md)
@@ -14,10 +12,12 @@
 	* [Servers](0%20-%20setup/servers.md)
 	* [Setting up Kali](0%20-%20setup/setting%20up%20kali.md)
 	* [Shells & Payloads](0%20-%20setup/shells%20and%20payloads.md)
+	* [Windows Commands](0%20-%20setup/windows%20commands.md)
+	* [Linux Commands](0%20-%20setup/linux%20commands.md)
 
 ---
 ### Enumeration
-*  **[Enumeration](1%20-%20enumeration/README.md)
+*  [Enumeration](1%20-%20enumeration/README.md)
 	* [Services](1%20-%20enumeration/services/README.md)
 		* [21 - FTP](1%20-%20enumeration/services/21%20-%20FTP.md)
 		* [22 - SSH](1%20-%20enumeration/services/22%20-%20SSH.md)
@@ -45,7 +45,7 @@
 	* [Responder](1%20-%20enumeration/responder.md)
 
 ### Exploitation
-*  **[Exploitation](2%20-%20exploitation/README.md)
+*  [Exploitation](2%20-%20exploitation/README.md)
 
 ### Post Exploitation
-*  **[Post Exploitation](1%20-%20post%20exploitation/README.md)
+*  [Post Exploitation](1%20-%20post%20exploitation/README.md)
