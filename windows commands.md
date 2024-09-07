@@ -14,15 +14,6 @@ Get-Process | Format-Table -Property Name, Id, CPU, WorkingSet -AutoSize
 Get-Process -Name "notepad"
 ```
 
-Disable AV
-```powershell
-# Disable Windows Defender real time monitoring
-Set-MpPreference -DisableRealtimeMonitoring $true
-
-# Disable Windows Defender scanning for all files downloaded
-Set-MpPreference -DisableIOAVProtection $true
-```
-
 List Network Connections
 ```powershell
 netstat -aon
