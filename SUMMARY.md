@@ -1,65 +1,27 @@
 # Table of contents
 
-* [Cheatsheet](red%20-%20offensive%20operations/README.md)
-* [osint](red%20-%20offensive%20operations/0%20-%20setup/osint/README.md)
-  * [dorks](dorks.md)
-  * [shodan](shodan.md)
-* [resources](red%20-%20offensive%20operations/resources/README.md)
-   * [references](references.md)
-   * [servers](servers.md)
-   * [setting up kali](setting%20up%20kali.md)
-   * [shells and payloads](shells%20and%20payloads.md)
-* [services](Cheatsheet/services/README.md)
-  * [21 - FTP](21%20-%20FTP.md - FTP.md>)
-  * [22 - SSH](22%20-%20SSH.md - SSH.md>)
-  * [25 - SMTP](25%20-%20SMTP.md - SMTP.md>)
-  * [53 - DNS](53%20-%20DNS.md - DNS.md>)
-  * [80/443 - HTTP/S](80%20-%20HTTP.md - HTTP.md>)
-  * [88 - Kerberos](<services/88 - Kerberos.md>)
-  * [110 - POP3](110%20-%20POP3.md - POP3.md>)
-  * [111/2049 - NFS](<services/111 - NFS.md>)
-  * [123 - NTP](123%20-%20NTP.md - NTP.md>)
-  * [135 - RPC](<services/135 - RPC.md>)
-  * [139 - SMB](<services/139 - SMB.md>)
-  * [161 - SNMP](161%20-%20SNMP.md - SNMP.md>)
-  * [389/636 - LDAP/S](389%20-%20LDAP.md - LDAP.md>)
-  * [443 - HTTPS](<services/443 - HTTPS.md>)
-  * [3306 - SQL](3306%20-%20SQL.md - SQL.md>)
-  * [5985 - WinRM](5985%20-%20WinRM.md - WinRM.md>)
-* [tools](tools/README.md)
-  * [c2](Cheatsheet/resources/c2%20infrastructure/README.md)
-    * [Cobalt Strike](<tools/c2/Cobalt Strike.md>)
-    * [Metasploit Framework](Metasploit%20Framework.md Framework.md>)
-    * [Sliver](Sliver.md)
-  * [linux](tools/linux/README.md)
-	  * [Privilege Escalation](tools/privilege%20escalation/README.md)
-		  * [linenum](linenum.md)
-		  * [linpeas](linpeas.md)
-    * [linux commands](linux%20commands.md)
-    * [Java Decompiler](Java%20Decompiler.md>)
-	* [chisel](chisel.md)
-	* [hashcat](hashcat.md)
-	*  [hydra](hydra.md)
-	* [john](john.md)
-	* [ligolo ng](ligolo%20ng.md>)
-	 * [netcat](netcat.md)
-	 * [nmap](nmap.md)
-  * [windows](tools/windows/README.md)
-	  * [Active Directory](tools/windows/active%20directory.md)
-		  * [get the dogs out](red%20-%20offensive%20operations/0%20-%20setup/get%20the%20dogs%20out/README.md)
-			  * [Bloodhound](tools/windows/active%20directory/bloodhound.md)
-		* [PowerView](tools/windows/active%20/directory/powerview.md)
-	  * [Privilege Escalation](tools/windows/privilege%20escalation/README.md)
-		  * [seimpersonate](seimpersonate.md)
-		  * [windows commands](red%20-%20offensive%20operations/windows%20systems/windows%20commands.md)
-		  * [winpeas](winpeas.md)
-    * [get the dogs out](get%20the%20dogs%20out.md)
-    * [ad cs](ad%20cs.md)
-    * [kerbrute](kerbrute.md)
-    * [runascs](runascs.md)
-    * [windows commands](red%20-%20offensive%20operations/windows%20systems/windows%20commands.md)
-  * [Web Exploitation](red%20-%20offensive%20operations/2%20-%20movement/web%20services/README.md)
-    * [IDOR](IDOR.md)
-    * [SSRF](SSRF.md)
-    * [SSTI](SSTI.md)
-    * [XSS](XSS.md)
+* [Red Teaming](red%20-%20offensive%20operations/README.md)
+	* [[red - offensive operations/0 - setup/README|Setup]]
+		* [[red - offensive operations/0 - setup/osint/README|OSINT]]
+			* [[dorks]]
+			* [[shodan]]
+		* [[references]]
+		* [[servers]]
+		* [[setting up kali]]
+		* [[shells and payloads]]
+	* [[red - offensive operations/1 - enumeration/services/README|Services]]
+		* [[21 - FTP]]
+		* [[22 - SSH]]
+		* [[25 - SMTP]]
+		* [[53 - DNS]]
+		* [[80 - HTTP|80/443 - HTTP/S]]
+		* [[88 - Kerberos]]
+		* [[110 - POP3]]
+		* [[111 - NFS|111/2049 - NFS]]
+		* [[123 - NTP]]
+		* [[135 - RPC]]
+		* [[139 - SMB]]
+		* [[161 - SNMP]]
+		* [[389 - LDAP|389/636 - LDAP/S]]
+		* [[3306 - SQL]]
+		* [[5985 - WinRM]]
