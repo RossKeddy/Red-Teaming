@@ -16,8 +16,10 @@
 
 * [Enumeration](1%20-%20enumeration/README.md)
 	* [Services](1%20-%20enumeration/services/README.md)
-		* [21 - FTP](1%20-%20enumeration/services/21%20-%20ftp.md)
-		* [22 - SSH](1%20-%20enumeration/services/22%20-%20ssh.md)
+		* [21 - FTP](1%20-%20enumeration/services/21%20-%20FTP.md)
+		* [22 - SSH](1%20-%20enumeration/services/22%20-%20SSH.md)
 		* [25 - SMTP](1%20-%20enumeration/services/25%20-%20SMTP.md)
 		* [53 - DNS](1%20-%20enumeration/services/53%20-%20DNS.md)
-		* [80/443 - HTTP/S](1%20-%20enumeration/services/80%20-%20http.md)
+		* [80/443 - HTTP/S](1%20-%20enumeration/services/80%20-%20HTTP.md)
+		* [88 - Kerberos](1%20-%20enumeration/services/88%20-%20Kerberos.md)
+		* [53 - DNS](1%20-%20enumeration/services/53%20-%20DNS.md)
