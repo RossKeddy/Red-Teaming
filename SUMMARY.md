@@ -1,7 +1,7 @@
 # Table of contents
 
 ### Red Teaming
-* [Welcome](red%20teaming/README.md)
+* [Welcome](README.md)
 ---
 ### The Basics
 * [Setup](0%20-%20setup/README.md)
