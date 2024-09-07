@@ -5,7 +5,8 @@
 * [Linux Commands](linux%20commands.md)
 * [Windows Commands](windows%20commands.md)
 ---
-*  **[Setup](0%20-%20setup/README.md)
+### The Basics
+* **[Setup](0%20-%20setup/README.md)
 	* [OSINT](0%20-%20setup/osint/README.md)
 		* [DORKS](0%20-%20setup/osint/dorks.md)
 		* [Shodan](0%20-%20setup/osint/shodan.md)
@@ -15,6 +16,7 @@
 	* [Shells & Payloads](0%20-%20setup/shells%20and%20payloads.md)
 
 ---
+### Enumeration
 *  **[Enumeration](1%20-%20enumeration/README.md)
 	* [Services](1%20-%20enumeration/services/README.md)
 		* [21 - FTP](1%20-%20enumeration/services/21%20-%20FTP.md)
@@ -41,3 +43,9 @@
 	* [PEASS-ng](1%20-%20enumeration/peass-ng.md)
 	* [PowerView](1%20-%20enumeration/powerview.md)
 	* [Responder](1%20-%20enumeration/responder.md)
+
+### Exploitation
+*  **[Exploitation](2%20-%20exploitation/README.md)
+
+### Post Exploitation
+*  **[Post Exploitation](1%20-%20post%20exploitation/README.md)
