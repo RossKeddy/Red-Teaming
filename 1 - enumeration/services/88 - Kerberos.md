@@ -1,4 +1,4 @@
-![[Kerb_auth.png]]
+![Kerberos Diagram](../../assets/Kerb_auth.png)
 
 ## Tools
 ### Kerbrute

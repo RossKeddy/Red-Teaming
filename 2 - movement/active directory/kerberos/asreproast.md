@@ -2,7 +2,7 @@ https://blog.xpnsec.com/kerberos-attacks-part-2/
 
 AS-REP roasting is a technique that allows retrieving password hashes for users that have do not have Kerberos pre-authentication property selected:
 
-![[image.png]]
+![AS-Rep Setting](../../../assets/asrep.png)
 
 ```
 .\Rubeus.exe asreproast

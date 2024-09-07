@@ -1,7 +1,7 @@
 # Bloodhound
 https://github.com/SpecterOps/BloodHound
 
-![[WalkTheDog.png]]
+![Walking the Dog](../assets/WalkTheDog.png)
 
 Let’s have the dog sniff things out because automated enumeration is cool
 
