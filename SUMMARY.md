@@ -1,7 +1,7 @@
 # Table of contents
 
 ### Red Teaming
-* [Welcome](README.md)
+* [Welcome](red%20teaming/README.md)
 * [Linux Commands](linux%20commands.md)
 * [Windows Commands](windows%20commands.md)
 ---
@@ -26,8 +26,8 @@
 		* [110 - POP3](1%20-%20enumeration/services/110%20-%20POP3.md)
 		* [111/2049 - NFS](1%20-%20enumeration/services/111%20-%20NFS.md)
 		* [123 - NTP](1%20-%20enumeration/services/123%20-%20NTP.md)
-		* [135 - RPC](1%20-%20enumeration/services/135%20-%20RPC.md)
-		* [139 - SMB](1%20-%20enumeration/services/139%20-%20SMB.md)
+		* [135/139 - RPC](1%20-%20enumeration/services/135%20-%20RPC.md)
+		* [139/445 - SMB](1%20-%20enumeration/services/139%20-%20SMB.md)
 		* [161 - SNMP](1%20-%20enumeration/services/161%20-%20SNMP.md)
 		* [389/636 - LDAP/S](1%20-%20enumeration/services/389%20-%20LDAP.md)
 		* [3306 - SQL](1%20-%20enumeration/services/3306%20-%20SQL.md)
