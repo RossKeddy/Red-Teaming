@@ -5,9 +5,9 @@
 * [Linux Commands](linux%20commands.md)
 * [Windows Commands](windows%20commands.md)
 #### Setup
-* [Setup](red%20teaming/0%20-%20setup/README.md)
-	* [OSINT](osint/README.md)
-		* [DORKS](dorks.md)
+* [Setup](0%20-%20setup/README.md)
+	* [OSINT](0%20-%20setup/osint/README.md)
+		* [DORKS](0%20-%20setup/osint/dorks.md)
 		* [Shodan](shodan.md)
 	* [References](references.md)
 	* [Servers](servers.md)
