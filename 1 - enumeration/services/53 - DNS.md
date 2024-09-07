@@ -1,5 +1,5 @@
-https://book.hacktricks.xyz/network-services-pentesting/pentesting-dns
-https://securitytrails.com/blog/most-popular-types-dns-attacks
+* https://book.hacktricks.xyz/network-services-pentesting/pentesting-dns
+* https://securitytrails.com/blog/most-popular-types-dns-attacks
 ---
 ## Finding Domain Controllers
 
