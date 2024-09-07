@@ -4,8 +4,8 @@
 * [Welcome](README.md)
 * [Linux Commands](linux%20commands.md)
 * [Windows Commands](windows%20commands.md)
-#### Setup
-* [Setup](0%20-%20setup/README.md)
+---
+* **[Setup](0%20-%20setup/README.md)**
 	* [OSINT](0%20-%20setup/osint/README.md)
 		* [DORKS](0%20-%20setup/osint/dorks.md)
 		* [Shodan](0%20-%20setup/osint/shodan.md)
@@ -13,8 +13,8 @@
 	* [Servers](0%20-%20setup/servers.md)
 	* [Setting up Kali](0%20-%20setup/setting%20up%20kali.md)
 	* [Shells & Payloads](0%20-%20setup/shells%20and%20payloads.md)
-
-* [Enumeration](1%20-%20enumeration/README.md)
+---
+* **[Enumeration](1%20-%20enumeration/README.md)**
 	* [Services](1%20-%20enumeration/services/README.md)
 		* [21 - FTP](1%20-%20enumeration/services/21%20-%20FTP.md)
 		* [22 - SSH](1%20-%20enumeration/services/22%20-%20SSH.md)
@@ -31,4 +31,6 @@
 		* [389/636 - LDAP/S](1%20-%20enumeration/services/389%20-%20LDAP.md)
 		* [3306 - SQL](1%20-%20enumeration/services/3306%20-%20SQL.md)
 		* [5985 - WinRM](1%20-%20enumeration/services/5985%20-%20WinRM.md)
+	* [accesschk](1%20-%20enumeration/services/accesschk.md)
+	* [Credentialed Enumeration](1%20-%20enumeration/services/credentialed#20enumeration.md)
 	* 
