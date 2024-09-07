@@ -1,27 +1,5 @@
 # Table of contents
 
-* [Red Teaming](red%20-%20offensive%20operations/README.md)
-	* [[red - offensive operations/0 - setup/README|Setup]]
-		* [[red - offensive operations/0 - setup/osint/README|OSINT]]
-			* [[dorks]]
-			* [[shodan]]
-		* [[references]]
-		* [[servers]]
-		* [[setting up kali]]
-		* [[shells and payloads]]
-	* [[red - offensive operations/1 - enumeration/services/README|Services]]
-		* [[21 - FTP]]
-		* [[22 - SSH]]
-		* [[25 - SMTP]]
-		* [[53 - DNS]]
-		* [[80 - HTTP|80/443 - HTTP/S]]
-		* [[88 - Kerberos]]
-		* [[110 - POP3]]
-		* [[111 - NFS|111/2049 - NFS]]
-		* [[123 - NTP]]
-		* [[135 - RPC]]
-		* [[139 - SMB]]
-		* [[161 - SNMP]]
-		* [[389 - LDAP|389/636 - LDAP/S]]
-		* [[3306 - SQL]]
-		* [[5985 - WinRM]]
+# Red Teaming
+* [0 - Setup](red%20teaming/0 - setup/README.md)
+* 
