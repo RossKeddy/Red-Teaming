@@ -1,5 +1,4 @@
 https://learn.microsoft.com/en-gb/sysinternals/downloads/accesschk
-
 ### Checking Access using Accesschk.exe
 Below should give you an idea of some of the useful flags
 ```powershell
