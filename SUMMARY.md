@@ -1,7 +1,7 @@
 # Table of contents
 
 ### Red Teaming
-* [Welcome](README.md)
+* [Welcome](red%20teaming/README.md)
 ---
 ### The Basics
 * [Setup](0%20-%20setup/README.md)
@@ -39,8 +39,6 @@
 	* [DHCP](1%20-%20enumeration/dhcp.md)
 	* [Get the Dogs Out](1%20-%20enumeration/get%20the%20dogs%20out.md)
 	* [Kerbrute](1%20-%20enumeration/kerbrute.md)
-	* [LinEnum](1%20-%20enumeration/linenum.md)
-	* [PEASS-ng](1%20-%20enumeration/peass-ng.md)
 	* [PowerView](1%20-%20enumeration/powerview.md)
 	* [Responder](1%20-%20enumeration/responder.md)
 

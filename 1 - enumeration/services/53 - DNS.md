@@ -10,6 +10,7 @@ The [nmap](https://nmap.org/) tool can be used with its [dns-srv-enum.nse](ht
 nmap --script dns-srv-enum --script-args dns-srv-enum.domain=$FQDN_DOMAIN
 ```
 
+> [!TIP]
 In order to function properly, the tools need to know the domain name and which nameservers to query. That information is usually [sent through DHCP offers](https://www.thehacker.recipes/ad/recon/dhcp) and stored in the `/etc/resolv.conf` or `/run/systemd/resolve/resolv.conf` file in UNIX-like systems.
 
 If needed, the nameservers may be found with a port scan on the network by looking for DNS ports `53/TCP` and `53/UDP`.

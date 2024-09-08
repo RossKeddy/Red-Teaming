@@ -1,4 +1,5 @@
 ```bash
+
 # Better version than snmpwalk as it displays more user friendly
 snmpcheck -t <IP> -c public 
 
