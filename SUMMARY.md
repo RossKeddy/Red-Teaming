@@ -95,5 +95,5 @@
 		* [FullPowers](3%20-%20post%20exploitation/privilege%20escalation/fullpowers.md)
 		* [PowerUp](3%20-%20post%20exploitation/privilege%20escalation/powerup.md)
 		* [SeImpersonate](3%20-%20post%20exploitation/privilege%20escalation/seimpersonate.md)
-	* [Evasion](3%20-%20post%20exploitation/privilege%20escalation/evasion.md)
+	* [Evasion](3%20-%20post%20exploitation/evasion.md)
 
