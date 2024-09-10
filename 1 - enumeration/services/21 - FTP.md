@@ -1,5 +1,5 @@
 ```
-# login if you have relevant creds or based on nmpa scan find out whether this has anonymous login or not, then loginwith Anonymous:password
+# login if you have relevant creds or based on nmpa scan find out whether this has # anonymous login or not, then loginwith Anonymous:password
 
 ftp <IP>
 ftp> USER anonymous

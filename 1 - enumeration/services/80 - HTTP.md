@@ -3,7 +3,6 @@ https://cheatsheetseries.owasp.org/index.html
 
 ---
 
-
 > Use [Wappalyzer](https://www.wappalyzer.com/download) to identify technologies, web server, OS, database server deployed
 > 
 > `View-Source` of pages to find interesting comments, directories, technologies, web application being used, etc.
