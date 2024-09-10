@@ -96,3 +96,4 @@
 		* [PowerUp](1%20-%20post%20exploitation/privilege%20escalation/powerup.md)
 		* [SeImpersonate](1%20-%20post%20exploitation/privilege%20escalation/seimpersonate.md)
 	* [Evasion](1%20-%20post%20exploitation/privilege%20escalation/evasion.md)
+
