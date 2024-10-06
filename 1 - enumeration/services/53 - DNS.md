@@ -42,6 +42,12 @@ Address:        10.13.37.10#53
 
 10.37.13.10.in-addr.arpa        name = www.securewebinc.jet.
 
+# TXT Query
+dig TXT ctf.games
+
+# MX Query
+dig MX ctf.games
+
 # NS Query
 dig ns domain.com @10.129.14.128
 

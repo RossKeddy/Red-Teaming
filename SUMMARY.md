@@ -95,5 +95,6 @@
 		* [FullPowers](3%20-%20post%20exploitation/privilege%20escalation/fullpowers.md)
 		* [PowerUp](3%20-%20post%20exploitation/privilege%20escalation/powerup.md)
 		* [SeImpersonate](3%20-%20post%20exploitation/privilege%20escalation/seimpersonate.md)
+		* [Sudo](3%20-%20post%20exploitation/privilege%20escalation/sudo.md)
+		* [SUID Binaries](3%20-%20post%20exploitation/privilege%20escalation/suid%20binaries.md)
 	* [Evasion](3%20-%20post%20exploitation/evasion.md)
-

