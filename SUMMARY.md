@@ -75,7 +75,7 @@
 			* [ESC9 no-security-extension](2%20-%20exploitation/active%20directory/ad%20cs/esc9%20no-security-extension.md)
 			* [ESC10 weak-certificate-mapping](2%20-%20exploitation/active%20directory/ad%20cs/esc10%20weak-certificate-mapping.md)
 			* [ESC11 rpc-endpoint](2%20-%20exploitation/active%20directory/ad%20cs/esc11%20rpc-endpoint.md)
-			* [ESC12 shell-access-to-adcs-ca-with-yubism](2%20-%20exploitation/active%20directory/ad%20cs/esc12%20shell-access-to-adcs-ca-with-yubism.md)
+			* [ESC12 shell-access-to-adcs-ca-with-yubishm](2%20-%20exploitation/active%20directory/ad%20cs/esc12%20shell-access-to-adcs-ca-with-yubishm.md)
 			* [ESC13 issuance-policy-with-privileged-group-linked](esc13%20issuance-policy-with-privileged-group-linked.md)
 			* [ESC14 weak-explicit-mapping](2%20-%20exploitation/active%20directory/ad%20cs/esc14%20weak-explicit-mapping.md)
 		* [PSExec](2%20-%20exploitation/active%20directory/psexec.md)
