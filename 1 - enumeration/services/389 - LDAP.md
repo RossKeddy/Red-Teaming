@@ -4,7 +4,7 @@
 
 ---
 ### Enumeration
-With [Impacket](https://github.com/SecureAuthCorp/impacket)'s [ntlmrelayx](https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py) (Python), it is possible to gather lots of information regarding the domain users and groups, the computers, [ADCS](https://www.thehacker.recipes/ad/movement/adcs/), etc. through a [NTLM authentication relayed](https://www.thehacker.recipes/ad/movement/ntlm/relay) within an LDAP session.
+With [Impacket](https://github.com/SecureAuthCorp/impacket)'s [ntlmrelayx](https://github.com/SecureAuthCorp/impacket/blob/master/examples/ntlmrelayx.py) it is possible to gather lots of information regarding the domain users and groups, the computers, [ADCS](https://www.thehacker.recipes/ad/movement/adcs/), etc. through a [NTLM authentication relayed](https://www.thehacker.recipes/ad/movement/ntlm/relay) within an LDAP session.
 ```bash
 ntlmrelayx -t "ldap://domaincontroller" --dump-adcs --dump-laps --dump-gmsa
 ```
