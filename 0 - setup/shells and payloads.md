@@ -56,7 +56,6 @@ So if you manage to upgrade to a non-interactive tty-shell you will still have a
 [https://github.com/cornerpirate/socat-shell](https://github.com/cornerpirate/socat-shell)
 
 # Listeners
-
 ```
 # Netcat
 [sudo] rlwrap nc -nvlp <port>
