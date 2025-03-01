@@ -33,6 +33,10 @@ ldapsearch -x -H ldap://10.10.10.161 -D '' -w '' -b "DC=htb,DC=local" "(&(object
 The windapsearch script can be used to enumerate basic but useful information.
 ```bash
 #windapsearch.py
+python3 windapsearch.py -d htb.local --dc-ip 10.10.10.161 --custom "objectClass=*"
+
+python3 windapsearch.py --dc-ip <IP address> -u
+
 #for computers
 python3 windapsearch.py --dc-ip <IP address> -u <username> -p <password> --computers
 

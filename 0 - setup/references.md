@@ -25,3 +25,5 @@ https://github.com/ihebski/DefaultCreds-cheat-sheet
 
 Username Wordlist
 https://github.com/insidetrust/statistically-likely-usernames
+
+https://inventory.raw.pm/
