@@ -8,6 +8,7 @@
 	* [OSINT](0%20-%20setup/osint/README.md)
 		* [DORKS](0%20-%20setup/osint/dorks.md)
 		* [Shodan](0%20-%20setup/osint/shodan.md)
+	* [Java](0%20-%20setup/java.md)
 	* [References](0%20-%20setup/references.md)
 	* [Servers](0%20-%20setup/servers.md)
 	* [Setting up Kali](0%20-%20setup/setting%20up%20kali.md)
@@ -99,7 +100,7 @@
 		* [Wordpress](2%20-%20exploitation/web%20services/wordpress.md)
 		* [XSS](2%20-%20exploitation/web%20services/xss.md)
 	* [Containers](2%20-%20exploitation/containers.md)
-	* [Java](2%20-%20exploitation/java%20decompiler.md)
+	* [Java](java.md)
 ### Post Exploitation
 *  [Post Exploitation](3%20-%20post%20exploitation/README.md)
 	* [Credential Dumping](3%20-%20post%20exploitation/credential%20dumping/README.md)

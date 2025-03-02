@@ -26,36 +26,27 @@ web.config
 ## Enumeration
 ### GoBuster
 https://github.com/OJ/gobuster
-
-Directories
-```
+```bash
+# Directories
 gobuster dir -u http://infiltrator.htb/ -w ~/wordlists/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-big.txt -b "302,404" -t 50
-```
 
-Subdomains
-```
+# Subdomains
 gobuster dns -d instant.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50
-```
 
-vHosts
-```
+# vHosts
 gobuster vhost -u runner.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50
 ```
-
 ### FeroxBuster
-Directories
-```
+```bash
+# Directories
 feroxbuster -u http://www.securewebinc.jet/ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -k -B -x "txt,html,php,zip,rar,tar.gz" -v -e -o ./ferox.txt
 ```
 ### FFUF
 https://github.com/ffuf/ffuf
-
-DNS
-```
+```bash
+# DNS
 ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt:FUZZ -u http://FUZZ.board.htb/
-```
 
-vHost
-```
+# vHost
 ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt:FUZZ -u http://board.htb/ -H 'Host: FUZZ.board.htb' -fs 900
 ```

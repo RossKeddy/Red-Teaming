@@ -7,7 +7,7 @@ So if you don't have a tty-shell you can't run `su`, `sudo` for example. This
 If you get one of these shells you can upgrade it to a tty-shell using the following methods:
 
 Stabilizing the shell:
-```
+```bash
 script /dev/null -c /bin/bash
 CTRL + Z
 stty raw -echo; fg
@@ -16,7 +16,7 @@ export TERM=xterm
 ```
 
 **Using python**
-```
+```bash
 # Python2
 python -c 'import pty; pty.spawn("/bin/sh")'
 
@@ -25,27 +25,27 @@ python3 -c "import pty; pty.spawn('/bin/sh')"
 ```
 
 **Echo**
-```
+```bash
 echo 'os.system('/bin/bash')'
 ```
 
 **sh**
-```
+```bash
 /bin/sh -i
 ```
 
 **bash**
-```
+```bash
 /bin/bash -i
 ```
 
 **Perl**
-```
+```bash
 perl -e 'exec "/bin/sh";'
 ```
 
 **From within VI**
-```
+```bash
 :!bash
 ```
 
@@ -56,7 +56,7 @@ So if you manage to upgrade to a non-interactive tty-shell you will still have a
 [https://github.com/cornerpirate/socat-shell](https://github.com/cornerpirate/socat-shell)
 
 # Listeners
-```
+```bash
 # Netcat
 [sudo] rlwrap nc -nvlp <port>
 ```
