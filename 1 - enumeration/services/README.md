@@ -18,12 +18,18 @@ The [nmap](https://nmap.org/) utility can be used to scan for open ports in an
 - -A - OS detection
 - -sC - Default Scripts
 - -sV - Probe ports for info
-- -T5 - Use 5 threads
+- -T5 - Use 5 threads (4 threads are better in real world exercises)
 - -Pn - Assume hosts are online
 - -p- - Scan all ports
 
 ```bash
 nmap -A -sC -sV -T5 -Pn -p- 10.129.142.35
+
+# Fast Scanning
+nmap -T5 -p- $ip
+# Define ports found 
+nmap -T5 -A $ip
+
 ```
 
 nmap udp scan
