@@ -83,6 +83,7 @@
 		* [PSExec](2%20-%20exploitation/active%20directory/psexec.md)
 		* [RunasCs](2%20-%20exploitation/active%20directory/runascs.md)
 	* [Password Attacks](2%20-%20exploitation/password%20attacks/README.md)
+		* [Credential Stuffing](2%20-%20exploitation/password%20attacks/credential%20stuffing.md)
 		* [Hashcat](2%20-%20exploitation/password%20attacks/hashcat.md)
 		* [Hydra](2%20-%20exploitation/password%20attacks/hydra.md)
 		* [John](2%20-%20exploitation/password%20attacks/john.md)

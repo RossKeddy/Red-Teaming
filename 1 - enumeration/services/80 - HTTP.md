@@ -51,12 +51,11 @@ ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-1100
 ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt:FUZZ -u http://board.htb/ -H 'Host: FUZZ.board.htb' -fs 900
 ```
 ### DirBuster
-GUI Software
+%% GUI Software %%
+## Vuln Scanning
 ### Nikto
-Web Vulnerability Scanner
 ```bash
 nikto -h http://domain
 ```
-
 ### Nessus
-GUI Software
+%% GUI Software %%
