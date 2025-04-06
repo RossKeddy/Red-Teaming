@@ -27,6 +27,13 @@ sudo du -hsx ./* | sort -rh | head -n 40
 # Cron Jobs
 ls -la /etc/cron.daily/
 
+crontab -l
+
+crontab -u root -l
+
+systemctl list-timers
+
+# Hunt passwords
 grep password -B 5 -A 5 # below 5 above 5
 ```
 
