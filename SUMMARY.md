@@ -113,6 +113,7 @@
 			* [Chisel](3%20-%20post%20exploitation/lateral%20movement/pivoting/chisel.md)
 			* [Ligolo ng](3%20-%20post%20exploitation/lateral%20movement/pivoting/ligolo%20ng.md)
 		* [impacket](3%20-%20post%20exploitation/lateral%20movement/impacket.md)
+		*  [SMB Relay](3%20-%20post%20exploitation/lateral%20movement/smb%20relay.md)
 	* [Persistence](3%20-%20post%20exploitation/persistence/README.md)
 		* [Metasploit](3%20-%20post%20exploitation/persistence/metasploit.md)
 		* [Skeleton Key](3%20-%20post%20exploitation/persistence/skeleton%20key.md)
