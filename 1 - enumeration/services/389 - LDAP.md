@@ -49,3 +49,10 @@ python3 windapsearch.py --dc-ip <IP address> -u <username> -p <password> --da
 #for privileged users
 python3 windapsearch.py --dc-ip <IP address> -u <username> -p <password> --privileged-users
 ```
+
+Once authenticated we can dump the domain objects with:
+```bash
+sudo ldapdomaindump ldaps://10.13.37.10 -u 'MARVEL\fcastle' -p Password1
+
+firefox domain_users_by_group.html
+```

@@ -8,6 +8,9 @@ nc -nv <ip> <port> > file/to/recv
 
 # cURL
 curl http://<ip>/file_name --output file_name
+
+# Sync clock
+sudo ntpdate -u DC
 ```
 
 ## Information Gathering
