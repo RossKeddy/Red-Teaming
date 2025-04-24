@@ -10,7 +10,7 @@ https://cheatsheetseries.owasp.org/index.html
 > Finding hidden content by scanning each sub-domain and interesting directories is a good idea
 
 ## Common Directories
-```
+```bash
 /robots.txt
 /sitemap.xml
 /.htaccess
@@ -21,6 +21,8 @@ web.config
 
 # Make it throw an error
 /doesnotexist
+
+assetfinder domain.com
 ```
 
 ## Enumeration

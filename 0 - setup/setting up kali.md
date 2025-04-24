@@ -16,8 +16,11 @@ https://github.com/owasp-amass/amass
 https://github.com/dirkjanm/PKINITtools
 https://github.com/OWASP/joomscan
 https://github.com/flozz/p0wny-shell
+https://doc.rust-lang.org/cargo/getting-started/installation.html
 
 ```
+sudo apt install golang
+
 Setup Burp
 Firefox -> Preferences -> Settings
 ```

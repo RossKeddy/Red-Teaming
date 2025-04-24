@@ -10,7 +10,7 @@
 		* [Shodan](0%20-%20setup/osint/shodan.md)
 	* [Java](0%20-%20setup/java.md)
 	* [References](0%20-%20setup/references.md)
-	* [Servers](0%20-%20setup/servers.md)
+	* [File Transfers](file%20transfers.md)
 	* [Setting up Kali](0%20-%20setup/setting%20up%20kali.md)
 	* [Shells & Payloads](0%20-%20setup/shells%20and%20payloads.md)
 	* [Windows Commands](0%20-%20setup/windows%20commands.md)

