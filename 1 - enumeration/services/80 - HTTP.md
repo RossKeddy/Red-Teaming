@@ -51,6 +51,9 @@ ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-1100
 
 # vHost
 ffuf -w ~/wordlists/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt:FUZZ -u http://board.htb/ -H 'Host: FUZZ.board.htb' -fs 900
+
+ffuf -u http://localhost/capstone/FUZZ -w /usr/share/wordlists/dirb/common.txt -e .php -recursion
+
 ```
 ### DirBuster
 %% GUI Software %%

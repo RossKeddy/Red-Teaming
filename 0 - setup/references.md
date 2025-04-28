@@ -27,3 +27,8 @@ Username Wordlist
 https://github.com/insidetrust/statistically-likely-usernames
 
 https://inventory.raw.pm/
+
+https://fuzzysecurity.com/
+
+https://github.com/swisskyrepo/PayloadsAllTheThings
+
