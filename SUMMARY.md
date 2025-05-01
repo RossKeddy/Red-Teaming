@@ -34,6 +34,7 @@
 		* [161 - SNMP](1%20-%20enumeration/services/161%20-%20SNMP.md)
 		* [389/636 - LDAP/S](1%20-%20enumeration/services/389%20-%20LDAP.md)
 		* [3306 - SQL](1%20-%20enumeration/services/3306%20-%20SQL.md)
+		* [3389 - RDP](1%20-%20enumeration/services/3306%20-%20RDP.md)
 		* [5985 - WinRM](1%20-%20enumeration/services/5985%20-%20WinRM.md)
 	* [AccessChk](1%20-%20enumeration/accesschk.md)
 	* [DHCP](1%20-%20enumeration/dhcp.md)

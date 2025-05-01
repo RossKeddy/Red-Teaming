@@ -32,3 +32,4 @@ https://fuzzysecurity.com/
 
 https://github.com/swisskyrepo/PayloadsAllTheThings
 
+https://github.com/samratashok/nishang

