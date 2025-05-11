@@ -34,7 +34,7 @@ nmap -T5 -A $ip
 
 nmap udp scan
 ```bash
-sudo nmap -p1-500 -sU -T5- 10.129.196.125
+sudo nmap -p1-500 -sU -T4- 10.129.196.125
 ```
 
 nmap Stealth Scan

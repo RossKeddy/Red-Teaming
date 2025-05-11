@@ -33,3 +33,8 @@ https://fuzzysecurity.com/
 https://github.com/swisskyrepo/PayloadsAllTheThings
 
 https://github.com/samratashok/nishang
+
+https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+https://github.com/rebootuser/LinEnum
+https://github.com/mzet-/linux-exploit-suggester
+https://github.com/sleventyeleven/linuxprivchecker
