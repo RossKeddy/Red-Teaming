@@ -10,6 +10,7 @@ put <file>
 
 # Downloading file
 get <file> 
+wget -m --no-passive ftp://anonymous:anonymous@<target>
 
 # NSE
 locate .nse | grep ftp

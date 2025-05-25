@@ -18,6 +18,7 @@ sudo ntpdate -u DC
 # Find useable Linux files
 find / -perm -u=s -type f 2>/dev/null
 
+# Find SUID
 find / -user root -perm -4000 -type f 2>/dev/null
 
 # Find writeable files
