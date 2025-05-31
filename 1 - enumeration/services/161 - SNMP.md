@@ -23,6 +23,8 @@ The security has been increased enormously for `SNMPv3` by security features s
 Community strings can be seen as passwords that are used to determine whether the requested information can be viewed or not. It is important to note that many organizations are still using `SNMPv2`, as the transition to `SNMPv3` can be very complex, but the services still need to remain active. This causes many administrators a great deal of concern and creates some problems they are keen to avoid. The lack of knowledge about how the information can be obtained and how we as attackers use it makes the administrators' approach seem inexplicable. At the same time, the lack of encryption of the data sent is also a problem. Because every time the community strings are sent over the network, they can be intercepted and read.
 # Better version than snmpwalk as it displays more user friendly
 ```
+onesixtyone -c /usr/share/wordlists/seclists/Discovery/SNMP/common-snmp-community-strings-onesixtyone.txt 10.129.202.20
+
 snmpcheck -t <IP> -c public 
 
 # Displays entire MIB tree, MIB Means Management Information Base

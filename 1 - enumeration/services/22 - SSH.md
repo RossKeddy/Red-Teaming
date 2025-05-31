@@ -11,4 +11,6 @@ ssh <gateway> -R <remote_port>:<local_host>:<local_port>
 
 # Dynamic Port Forwarding
 ssh -D <local proxy port> -p <remote port> <target>
+
+-o PreferredAuthentications=password
 ```
