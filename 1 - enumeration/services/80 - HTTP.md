@@ -37,7 +37,8 @@ gobuster dns -d environment.htb -w /usr/share/wordlists/seclists/Discovery/DNS/s
 
 
 # vHosts
-gobuster vhost -u runner.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -t 50
+gobuster vhost -u runner.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain -t 50
+# The --append-domain flag is required to append the base domain to each word in the wordlist. This flag ensures that Gobuster correctly constructs the full virtual hostnames while enumerating.
 ```
 ### FeroxBuster
 ```bash
