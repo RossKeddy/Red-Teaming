@@ -179,7 +179,7 @@ Restart-Service <service>
 #Powershell History
 Get-History
 (Get-PSReadlineOption).HistorySavePath #displays the path of consoleHost_history.txt
-type C:\Users\sathvik\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+type $env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 
 #Viewing installed execuatbles
 Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname

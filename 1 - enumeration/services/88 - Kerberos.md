@@ -4,12 +4,13 @@
 ### Kerbrute
 https://github.com/ropnop/kerbrute
 
-User Enumeration
+#### User Enumeration
 ```bash
-./kerbrute_linux_amd64 userenum -d lab.ropnop.com usernames.txt
-```
+./kerbrute userenum -d lab.ropnop.com usernames.txt
 
-Password Spray
+sudo nmap -p 88 --script=krb5-enum-users --script-args="krb5-enum-users.realm='sevenkingdoms.local',userdb=possible_usernames.txt" kingslanding
 ```
-./kerbrute_linux_amd64 passwordspray -d lab.ropnop.com domain_users.txt Password123
+#### Password Spray
+```
+./kerbrute passwordspray -d lab.ropnop.com domain_users.txt Password123
 ```

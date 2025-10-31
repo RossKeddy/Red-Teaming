@@ -24,12 +24,16 @@ The [nmap](https://nmap.org/) utility can be used to scan for open ports in an
 
 ```bash
 nmap -A -sC -sV -T5 -Pn -p- 10.129.142.35
+sudo nmap -sS -sV -A -p- -T4 10.129.8.220
 
 # Fast Scanning
 nmap -T5 -p- $ip
 # Define ports found 
 nmap -T5 -A $ip
 
+
+export IP=
+rustscan --ulimit 10000 -a $IP -- -sCTV -Pn
 ```
 
 nmap udp scan

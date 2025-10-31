@@ -21,7 +21,7 @@ export TERM=xterm
 python -c 'import pty; pty.spawn("/bin/sh")'
 
 # Python3
-python3 -c "import pty; pty.spawn('/bin/sh')"
+python3 -c "import pty; pty.spawn('/bin/bash')"
 ```
 
 **Echo**

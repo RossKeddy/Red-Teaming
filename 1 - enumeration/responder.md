@@ -25,7 +25,7 @@ Machine account NT hashes can be used with the silver ticket or S4U2self abuse
 # -A is analyze mode
 sudo responder -I tun0 -A 
 
-
+sudo responder -I ligolo -dwv
 sudo responder -I tun0 -wrf
 
 # -w and -P must be used seperately - For capturing hashes over L2 use -dPv
