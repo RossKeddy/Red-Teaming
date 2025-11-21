@@ -14,7 +14,7 @@ The IPMI protocol was first published by Intel in 1998 and is now supported by o
 - IPMI Memory - stores things such as the system event log, repository store data, and more
 - Communications Interfaces - local system interfaces, serial and LAN interfaces, ICMB and PCI Management Bus
 
-```
+```bash
 sudo nmap -sU --script ipmi-version -p 623 ilo.rosskeddy.local
 
 msf6 > use auxiliary/scanner/ipmi/ipmi_version 

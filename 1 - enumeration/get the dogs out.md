@@ -35,7 +35,7 @@ upload SharpHound.exe
 # Leverage LDAPS
 ./SharpHound.exe --SecureLdap
 
-SharpHound.exe --collectionmethods All
+SharpHound.exe -c All
 
 download ***.zip
 ```
