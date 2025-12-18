@@ -133,3 +133,7 @@ nmap -v -sV -sU -p 53 $SUBNET/$MASK
 ```
 
 > The DNS service is usually offered by all domain controllers
+
+```
+nslookup -type=SRV _ldap._tcp.dc._msdcs.pharmamedica.com
+```

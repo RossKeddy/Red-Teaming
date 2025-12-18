@@ -20,6 +20,7 @@ find / -perm -u=s -type f 2>/dev/null
 
 # Find SUID
 find / -user root -perm -4000 -type f 2>/dev/null
+find / -perm -4000 -o -perm -2000 2>/dev/null
 
 # Find writeable files
 find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
