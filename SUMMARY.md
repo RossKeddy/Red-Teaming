@@ -122,7 +122,7 @@
 		* [ProcDump](3%20-%20post%20exploitation/credential%20dumping/procdump.md)
 		* [Secrets Dump](3%20-%20post%20exploitation/credential%20dumping/secrets%20dump.md)
 	* [Evasion](3%20-%20post%20exploitation/evasion/README.md)
-		* [Disable Defender](3%20-%20post%20exploitation/evasion/disable%20%defender.md)
+		* [Disable Defender](3%20-%20post%20exploitation/evasion/disable%20defender.md)
 	* [Lateral Movement](3%20-%20post%20exploitation/lateral%20movement/README.md)
 		* [Pivoting](3%20-%20post%20exploitation/lateral%20movement/pivoting/README.md)
 			* [Chisel](3%20-%20post%20exploitation/lateral%20movement/pivoting/chisel.md)
