@@ -1,5 +1,5 @@
 # Ascension
-![[./screenshots/logo.webp]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/logo.webp]]
 ## Scenario
 
 This is the Capstone Challenge for Ryan's [Hacking Linux course on Simply Cyber Academy](https://academy.simplycyber.io/l/pdp/linux-hacking). As a result, this lab isn't strictly focused on realism, but rather teaching proper enumeration, lateral movement, and privilege escalation on a Linux machine.
@@ -24,71 +24,69 @@ PORT      STATE SERVICE  VERSION
 ```
 
 Starting from top to bottom, the attacker tries logging in with the default `ftp:ftp` credentials and successfully compromised the FTP service. Inside was an interesting file labeled `pwlist.txt`
-![[./screenshots/ftp.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/ftp.png]]
 
 The list is fairly generic, and all of these options will be available with `rockyou.txt`.
-![[./screenshots/passwords.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/passwords.png]]
 
 The attacker will pivot to NFS shares. Checking the mounts reveals one is available.
-![[./screenshots/user1nfs.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/user1nfs.png]]
 
 The attacker will mount this locally for enumeration.
-![[./screenshots/user1nfsmounting.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/user1nfsmounting.png]]
 
 Inside the share is a key pair. 
-![[./screenshots/nfscredfiles.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/nfscredfiles.png]]
 ## Privilege Escalation
-The private key requires a passwords, therefor the attacker will utilize ssh2john to attempt to crack it and obtain access.
-![[./screenshots/ssh2john.png]]
+The private key requires a passwords, therefor the attacker will utilize [ssh2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) to attempt to crack it and obtain access.
+![[writeups/hacksmarter/ascension (easy)/screenshots/ssh2john.png]]
 
-Utilizing john on the converted hash reveals the keypair password is `sammie1`
-![[./screenshots/cracker.png]]
+Utilizing [john](https://www.openwall.com/john/) on the converted hash reveals the keypair password is `sammie1`
+![[writeups/hacksmarter/ascension (easy)/screenshots/cracker.png]]
 
-Armed with the password the attacker takes over the user1 account and retrieves the flag.
-![[./screenshots/user1flag.png]]
+Armed with the password the attacker has compromised the user1 account and retrieves the flag.
+![[writeups/hacksmarter/ascension (easy)/screenshots/user1flag.png]]
 
 ### Credentialed Enumeration
-Checking /etc/passwd reveals some interesting users.
-![[./screenshots/passwd.png]]
+Checking `/etc/passwd` reveals some interesting users.
+![[writeups/hacksmarter/ascension (easy)/screenshots/passwd.png]]
  
- With the list of users obtained, the attacker will attack the ftpuser with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![[./screenshots/ftpuser.png]]
+ With the list of users obtained, the attacker will password spray the `ftpuser` using [hydra](https://github.com/vanhauser-thc/thc-hydra) with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![[writeups/hacksmarter/ascension (easy)/screenshots/ftpuser.png]]
 
-The attacker will try a standard login to that user which was successful and obtains the ftpuser flag.
-![[./screenshots/ftpuserflag.png]]
+The attacker will try a standard login to that user which was successful and obtains the `ftpuser` flag.
+![[writeups/hacksmarter/ascension (easy)/screenshots/ftpuserflag.png]]
 
 The attacker identifies some database credentials that will be utilized later
-![[./screenshots/dbcreds.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/dbcreds.png]]
 
-`linpeas.sh` revealed nothing of interest. `pspy64` revealed the following script running as `UID=1002`:
-![[./screenshots/pspy64.png]]
-
-## Lateral Movement
-However no files exist there, the attacker will create `backup.sh` and populate it with a reverse shell. This file is an attempt to gain shell as user2 (UID 1002).
-![[./screenshots/tmpdir.png]]
-
-![[./screenshots/filereplacement.png]]
-
-Starting a listener on penelope and waiting eventually yields a shell. This is successful because the script is running on a timer and the attacker was able to write to /tmp/ and force it to run anything the attacker wants.
-![[./screenshots/user2shell.png]]
-
-Now as user2 the user2 flag is obtained.
-![[./screenshots/user2flag.png]]
+[linpeas](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS) revealed nothing of interest. [pspy64](https://github.com/DominicBreuker/pspy) revealed the following script running as `UID=1002`:
+![[writeups/hacksmarter/ascension (easy)/screenshots/pspy64.png]]
 
 ## Lateral Movement
-Now the attacker will utilize the DB credentials from earlier. Issuing a `ss -tupln` reveals SQL is running on the standard port, therefor they will try and connect.
-![[./screenshots/sqlpwned.png]]
+However no files exist in `/tmp`, the attacker will create `backup.sh` and populate it with a reverse shell. This file is an attempt to gain shell as user2 (UID 1002).
+![[writeups/hacksmarter/ascension (easy)/screenshots/tmpdir.png]]
 
-Displaying the tables yields flags and users. The attacker will select all from those tables and utilize them for further lateral movement.
+![[writeups/hacksmarter/ascension (easy)/screenshots/filereplacement.png]]
+
+Starting a listener on [penelope](https://github.com/brightio/penelope) and waiting eventually yields a shell. This is successful because the script is running on a timer and the attacker was able to write to `/tmp/` and force it to run anything the attacker wants.
+![[writeups/hacksmarter/ascension (easy)/screenshots/user2shell.png]]
+
+Now as user2 the second flag is obtained.
+![[writeups/hacksmarter/ascension (easy)/screenshots/user2flag.png]]
+
+## Lateral Movement
+Now the attacker will utilize the DB credentials from earlier. Issuing a `ss -tupln` reveals SQL is running on the standard port, therefor they will try and connect. Displaying the tables yields flags and users. The attacker will select all from those tables and utilize them for further lateral movement.
+![[writeups/hacksmarter/ascension (easy)/screenshots/sqlpwned.png]]
 
 With those credentials found, the attacker will try and login as that user.
-![[./screenshots/user3pwned.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/user3pwned.png]]
 
 ## Privilege Escalation
 Interestingly in the user3 home directory, there is a python3 binary. This binary does not have SUID set.
-![[./screenshots/python3getcap.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/python3getcap.png]]
 
 However, this binary has the Linux CAP_SETUID capability set, so it can be used as a backdoor to maintain privileged access by manipulating its own process UID.
-![[./screenshots/getcap.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/getcap.png]]
 
 With that discovery, a simple binary privilege escalation exploit will allow the attacker to become the root user and obtain the sixth and final flag.
-![[./screenshots/privesc.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/privesc.png]]

