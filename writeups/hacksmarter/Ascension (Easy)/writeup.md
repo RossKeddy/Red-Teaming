@@ -1,5 +1,5 @@
 # Ascension
-![Logo](./screenshots/logo.webp)
+![](./screenshots/logo.webp)
 ## Scenario
 
 This is the Capstone Challenge for Ryan's [Hacking Linux course on Simply Cyber Academy](https://academy.simplycyber.io/l/pdp/linux-hacking). As a result, this lab isn't strictly focused on realism, but rather teaching proper enumeration, lateral movement, and privilege escalation on a Linux machine.
@@ -107,7 +107,7 @@ Interestingly in the user3 home directory, there is a python3 binary. This binar
 
 However, this binary has the Linux CAP_SETUID capability set, so it can be used as a backdoor to maintain privileged access by manipulating its own process UID.
 
-![setuid=ep Set on Python Binary](./screenshots/getcap.png)_
+![setuid=ep Set on Python Binary](./screenshots/getcap.png)
 
 With that discovery, a simple binary privilege escalation exploit will allow the attacker to become the root user and obtain the sixth and final flag.
 

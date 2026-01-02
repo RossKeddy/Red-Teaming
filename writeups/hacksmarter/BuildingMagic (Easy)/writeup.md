@@ -1,5 +1,5 @@
 # Building Magic
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/buildingmagic-logo.png]]
+![](./screenshots/buildingmagic-logo.png)
 ## Scope and Objective
 
 **Objective**: As a penetration tester on the Hack Smarter Red Team, your objective is to achieve a full compromise of the Active Directory environment.
@@ -60,11 +60,13 @@ bfaf794a81438488e57ee3954c27cd75
 ```
 
 Crackstation reveals two of the md5 hashes are easily cracked.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/crackstation.png]]
+
+![Online Website Crackstation](./screenshots/crackstation.png)
 
 The attacker utilizes hashcat to confirm. [Hashcat](https://github.com/hashcat/hashcat) only cracks one password.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hashcat1.png]]
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hashcat2.png]]
+
+![Hashcat Confirmation](./screenshots/hashcat1.png)
+![Hashcat Cracked Passwords](./screenshots/hashcat2.png)
 
 ```
 c4a21c4d438819d73d24851e7966229c:r.widdleton:lilronron
@@ -105,16 +107,20 @@ Service Info: Host: DC01; OS: Windows; CPE: cpe:/o:microsoft:windows
 ```
 
 While the scan is happening, the attacker checks for null authentication on the domain with [NetExec](https://www.netexec.wiki/). The output confirms null authentication is enabled on DC01.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/nullauth.png]]
+
+![Null Authentication Check](./screenshots/nullauth.png)
 
 The attacker confirms that `r.widdleton` has valid credentials. This user is now compromised.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/r.widdleton.png]]
+
+![r.widdleton Compromised](./screenshots/r.widdleton.png)
 
 Unfortunately, t.ren is not a valid logon.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/t.ren.png]]
+
+![t.ren Validation](./screenshots/t.ren.png)
 
 Utilizing the valid credentials, the attacker will use [NetExec](https://www.netexec.wiki/smb-protocol/enumeration/enumerate-domain-users) to enumerate all users on the domain.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/netexec-users.png]]
+
+![NetExec User Enumeration](./screenshots/netexec-users.png)
 
 With the new users, the attacker will update `users.txt` to the following:
 ```
@@ -136,13 +142,16 @@ a.flatch
 ```
 
 With an updated list of users, the attacker will [check the domain password policy](https://www.netexec.wiki/smb-protocol/enumeration/enumerate-domain-password-policy-1) and try to spray the new users with the cracked passwords.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/pass-pol.png]]
+
+![buildingmagic.local Password Policy](./screenshots/pass-pol.png)
 
 With the password policy being incredibly lax, the attacker can spray with no issues.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/spray1.png]]
+
+![Password Spray Attack On Users](./screenshots/spray1.png)
 
 Unfortunately, no valid logons are obtained. The attacker will pivot to [BloodHound](https://github.com/SpecterOps/BloodHound) for further enumeration. Using [bloodhound-python](https://github.com/dirkjanm/BloodHound.py/tree/bloodhound-ce) to collect domain information and uploading it to [BloodHound](https://github.com/SpecterOps/BloodHound). Once uploaded the attacker adds r.widdleton to Owned.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/bloodhound collection.png]]
+
+![Enumerating AD Objects with BloodHound](./screenshots/bloodhoundcollection.png)
 
 - Checking the `Shortest Path from Owned Objects` yields no valuable attack paths. 
 - Checking ASREP Roastable users reveals nothing of value.
@@ -150,33 +159,41 @@ Unfortunately, no valid logons are obtained. The attacker will pivot to [BloodHo
 - Checking Administrators reveals `a.flatch` as a high value target
 
 Since the attacker discovered `r.haggard` is kerberoastable. They can dump the ticket hash using [impacket](https://github.com/fortra/impacket/blob/master/examples/GetUserSPNs.py) or [NetExec](https://www.netexec.wiki/ldap-protocol/kerberoasting).
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/kerberoast1.png]]
+
+![Kerberoasting](./screenshots/kerberoast1.png)
 
 Cracking the hash was easy. The attacker marks this user as owned in [BloodHound](https://github.com/SpecterOps/BloodHound).
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/kerberoastcrack.png]]
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/kerberoast2.png]]
+
+![Offline Kerberoast Cracking](./screenshots/kerberoastcrack.png)
+![Password Obtained from Kerberoasting](./screenshots/kerberoast2.png)
 
 With [BloodHound](https://github.com/SpecterOps/BloodHound) the attacker can see `r.haggard` has outbound object control on h.potch.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/forcechangepass.png]]
+
+![BloodHound Path from r.haggard to h.potch](./screenshots/forcechangepass.png)
 
 With [BloodyAD](https://github.com/CravateRouge/bloodyAD) this is an easy account takeover. 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/bloodyad.png]]
+
+![Changing h.potch's Password](./screenshots/bloodyad.png)
 
 Utilizing [NetExec](https://www.netexec.wiki/) the attacker confirms successful compromise of the account and marks the object as Owned in [BloodHound](https://github.com/SpecterOps/BloodHound).
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hpotch.png]]
+
+![Confirming h.potch Compromise](./screenshots/hpotch.png)
 
 With this user compromised, the attacker will use the credentials to enumerate shares. The account has READ/WRITE on `File-Share` so this will be the next target.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/shares.png]]
+
+![Enumerating Shares with NetExec](./screenshots/shares.png)
 
 Greenwolf provides an excellent [tool](https://github.com/Greenwolf/ntlm_theft), ntlm_theft, which can be used in conjunction with [Responder](https://github.com/SpiderLabs/Responder) to capture NTLM authentication. An attacker can generate malicious file payloads (such as LNK or SCF files) and upload them to a network share. When a user browses or interacts with the share, the payload can trigger an outbound NTLM authentication attempt, which Responder can then capture or relay.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/ntlmtheft.png]]
 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/responder.png]]
+![ntlm_theft Payload Generation](./screenshots/ntlmtheft.png)
 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/smbpoison.png]]
+![Starting Responder Poisoners](./screenshots/responder.png)
+
+![Uploading Malicious Payload to the Share](./screenshots/smbpoison.png)
 
 Once the file is put into the share responder will begin capturing hashes. NTLMv2 is typically very difficult to crack, however the attacker will attempt it regardless.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/ntlmv2.png]]
+
+![Poisoned User Obtained with Responder](./screenshots/ntlmv2.png)
 
 ```
 [SMB] NTLMv2-SSP Client   : 10.1.69.13
@@ -185,17 +202,20 @@ Once the file is put into the share responder will begin capturing hashes. NTLMv
 ```
 
 The password ended up being easily cracked and further lateral movement was possible.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hashcatgrangon.png]]
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/grangoncracked.png]]
+
+![Cracking Poisoned User's NTLMv2 Hash](./screenshots/hashcatgrangon.png)
+![Cracked Password](./screenshots/grangoncracked.png)
 
 The attacker confirms `h.grangon` is compromised and marks the object as owned in [BloodHound](https://github.com/SpecterOps/BloodHound). This user is also a member of `Remote Management Users` meaning the attacker now has direct access to the machine using evil-winrm.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/grangonowned.png]]
 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/grangonwinrm.png]]
+![Confirming User Compromise](./screenshots/grangonowned.png)
+
+![Accessing Account with Evil-WinRM](./screenshots/grangonwinrm.png)
 
 ## Privilege Escalation
 Browsing to `h.grangon`'s desktop reveals the user flag. The next step is to enumerate what `h.grangon` has or can do, with the end goal of obtaining Domain Admin privileges. Checking this user's privileges reveals two overpermissioned grants called [SeMachineAccountPrivilege](https://www.semperis.com/blog/mitigating-active-directory-domain-service-privilege-escalation-security-flaws/) & [SeBackupPrivilege](https://juggernaut-sec.com/sebackupprivilege/). For Privilege Escalation the attacker will use [SeBackupPrivilege](https://juggernaut-sec.com/sebackupprivilege/).
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/grangonprivs.png]]
+
+![Confirming Privileges](./screenshots/grangonprivs.png)
 
 The attacker will save the [SAM & SYSTEM hives](https://www.thehacker.recipes/ad/movement/credentials/dumping/sam-and-lsa-secrets) and download those using [evil-winrm](https://github.com/Hackplayers/evil-winrm).
 ```powershell
@@ -203,12 +223,14 @@ reg save HKLM\sam.hive "C:\Users\h.grangon\sam.hive"
 reg save HKLM\system.hive "C:\Users\h.grangon\system.hive"
 ```
 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/regdownload.png]]
+![Saving SAM & SYSTEM Hives](./screenshots/regdownload.png)
 
 With both hives the attacker can simply use [secretsdump.py](https://github.com/fortra/impacket/blob/master/examples/secretsdump.py) to obtain the NT Hashes for accounts.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/secretsdump.png]]
+
+![Dumping the Credentials from the Hives](./screenshots/secretsdump.png)
 
 Spraying the Administrator hash reveals `a.flatch` (The user identified from [BloodHound](https://github.com/SpecterOps/BloodHound) earlier) is Administrator and utilizing this credential allows for full compromise of the Active Directory domain.
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/adminpwned.png]]
 
-![[writeups/hacksmarter/buildingmagic (easy)/screenshots/flatch.png]]
+![Password Spraying with the Administrator Hash](./screenshots/adminpwned.png)
+
+![Administrator Obtained and Environment Fully Compromised](./screenshots/flatch.png)

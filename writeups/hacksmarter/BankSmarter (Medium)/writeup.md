@@ -1,5 +1,5 @@
 # BankSmarter
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/logo.jpg]]
+![](./screenshots/logo.jpg)
 
 
 ## Scenario
@@ -47,17 +47,20 @@ PORT    STATE         SERVICE
 With [snmpwalk](https://linux.die.net/man/1/snmpwalk) the attacker finds plaintext credentials:
 `layne.stanley : 5t6^jahTRjab`
 
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/snmpwalk.png]]
+![snmpwalk on Exposed Service](./screenshots/snmpwalk.png)
 
 With these credentials access to ssh is possible.
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/ssh.png]]
+
+![SSH Login as Layne.Stanley](./screenshots/ssh.png)
 
 In the home directory there is a script owned by `scott.weiland`. Using [pspy](https://github.com/DominicBreuker/pspy) it's possible to see that the script is running on a timer. Since this script is in our user's home directory, the attacker can simply remove it and replace it with a reverse shell that will get executed.
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/userscript.png]]
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/pspy64.png]]
+
+![Backup Script Running as Another User](./screenshots/userscript.png)
+![PsPy64 Output Showing UID-1002 Trying to Run the Script](./screenshots/pspy64.png)
 
 Utilizing [Penelope](https://github.com/brightio/penelope) the reverse shell is caught.
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/penelope.png]]
+
+![Penelope Catching the Script Exploit](./screenshots/penelope.png)
 
 Through standard enumeration the attacker identifies interesting attack vectors from `.bash_history`.
 ```bash
@@ -83,13 +86,16 @@ HISTFILE="/home/scott.weiland/.bash_history"
 ```
 
 Utilizing `socat stdio unix-connect:/opt/bank/sockets/live.sock` from above, it's possible to compromise `ronnie.stone`
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/ronnie.png]]
+
+![SOCAT Compromising Ronnie.Stone](./screenshots/ronnie.png)
 
 Enumerating for SUID binaries reveals:
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/suid.png]]
+
+![SUID Enumeration](./screenshots/suid.png)
 
 Which when run reveals a call to `bank_backup.py`
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/suidrun.png]]
+
+![bank_backup.py](./screenshots/suidrun.png)
 
 Reading the source code reveals a critical weakness, The script is checking the current shell's environment with `#!/usr/bin/env python3`. This can be abused by specifying a path that gets loaded prior to the intentional one.
 ```bash
@@ -103,4 +109,5 @@ chmod +x /tmp/python3
 ```
 
 The scripts has been run and thus fully compromising the system.
-![[writeups/hacksmarter/banksmarter (medium)/screenshots/root.png]]
+
+![Running the Script with New Path Compromises the Environment](./screenshots/root.png)
