@@ -135,6 +135,7 @@ Since the scope indicate AV is on the box, the attacker will perform commands re
 ![BloodHound Attack Path](./screenshots/escpath.png)
 
 ![Setting GenericAll for Default Domain Policies on Greg.Shields](./screenshots/defaultdomainpolicypwn3d.png)
+
 ![Setting Default Domain Policy Owner to Greg.Shields](./screenshots/defaultdomainsetowner.png)
 
 ```bash
