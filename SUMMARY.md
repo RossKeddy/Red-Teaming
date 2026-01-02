@@ -148,3 +148,6 @@
 		* [SUID Binaries](3%20-%20post%20exploitation/privilege%20escalation/suid%20binaries.md)
 		* [Token Impersonation](3%20-%20post%20exploitation/privilege%20escalation/token%20impersonation.md)
 	* [Credentialed Enumeration](3%20-%20post%20exploitation/credentialed%20enumeration.md)
+
+### Writeups
+*  [Hack Smarter](writeups/hack%20smarter/README.md)
