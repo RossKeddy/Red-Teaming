@@ -1,5 +1,5 @@
 # Ascension
-![[logo.webp]]
+![[./screenshots/logo.webp]]
 ## Scenario
 
 This is the Capstone Challenge for Ryan's [Hacking Linux course on Simply Cyber Academy](https://academy.simplycyber.io/l/pdp/linux-hacking). As a result, this lab isn't strictly focused on realism, but rather teaching proper enumeration, lateral movement, and privilege escalation on a Linux machine.
@@ -24,71 +24,71 @@ PORT      STATE SERVICE  VERSION
 ```
 
 Starting from top to bottom, the attacker tries logging in with the default `ftp:ftp` credentials and successfully compromised the FTP service. Inside was an interesting file labeled `pwlist.txt`
-![[ftp.png]]
+![[./screenshots/ftp.png]]
 
 The list is fairly generic, and all of these options will be available with `rockyou.txt`.
-![[passwords.png]]
+![[./screenshots/passwords.png]]
 
 The attacker will pivot to NFS shares. Checking the mounts reveals one is available.
-![[user1nfs.png]]
+![[./screenshots/user1nfs.png]]
 
 The attacker will mount this locally for enumeration.
-![[user1nfsmounting.png]]
+![[./screenshots/user1nfsmounting.png]]
 
 Inside the share is a key pair. 
-![[nfscredfiles.png]]
+![[./screenshots/nfscredfiles.png]]
 ## Privilege Escalation
 The private key requires a passwords, therefor the attacker will utilize ssh2john to attempt to crack it and obtain access.
-![[ssh2john.png]]
+![[./screenshots/ssh2john.png]]
 
 Utilizing john on the converted hash reveals the keypair password is `sammie1`
-![[cracker.png]]
+![[./screenshots/cracker.png]]
 
 Armed with the password the attacker takes over the user1 account and retrieves the flag.
-![[user1flag.png]]
+![[./screenshots/user1flag.png]]
 
 ### Credentialed Enumeration
 Checking /etc/passwd reveals some interesting users.
-![[passwd.png]]
+![[./screenshots/passwd.png]]
  
- With the list of users obtained, the attacker will attack the ftpuser with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![[ftpuser.png]]
+ With the list of users obtained, the attacker will attack the ftpuser with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![[./screenshots/ftpuser.png]]
 
 The attacker will try a standard login to that user which was successful and obtains the ftpuser flag.
-![[ftpuserflag.png]]
+![[./screenshots/ftpuserflag.png]]
 
 The attacker identifies some database credentials that will be utilized later
-![[dbcreds.png]]
+![[./screenshots/dbcreds.png]]
 
 `linpeas.sh` revealed nothing of interest. `pspy64` revealed the following script running as `UID=1002`:
-![[writeups/hacksmarter/ascension (easy)/screenshots/pspy64.png]]
+![[./screenshots/pspy64.png]]
 
 ## Lateral Movement
 However no files exist there, the attacker will create `backup.sh` and populate it with a reverse shell. This file is an attempt to gain shell as user2 (UID 1002).
-![[tmpdir.png]]
+![[./screenshots/tmpdir.png]]
 
-![[filereplacement.png]]
+![[./screenshots/filereplacement.png]]
 
 Starting a listener on penelope and waiting eventually yields a shell. This is successful because the script is running on a timer and the attacker was able to write to /tmp/ and force it to run anything the attacker wants.
-![[user2shell.png]]
+![[./screenshots/user2shell.png]]
 
 Now as user2 the user2 flag is obtained.
-![[user2flag.png]]
+![[./screenshots/user2flag.png]]
 
 ## Lateral Movement
 Now the attacker will utilize the DB credentials from earlier. Issuing a `ss -tupln` reveals SQL is running on the standard port, therefor they will try and connect.
-![[sqlpwned.png]]
+![[./screenshots/sqlpwned.png]]
 
 Displaying the tables yields flags and users. The attacker will select all from those tables and utilize them for further lateral movement.
 
 With those credentials found, the attacker will try and login as that user.
-![[user3pwned.png]]
+![[./screenshots/user3pwned.png]]
 
 ## Privilege Escalation
 Interestingly in the user3 home directory, there is a python3 binary. This binary does not have SUID set.
-![[python3getcap.png]]
+![[./screenshots/python3getcap.png]]
 
 However, this binary has the Linux CAP_SETUID capability set, so it can be used as a backdoor to maintain privileged access by manipulating its own process UID.
-![[getcap.png]]
+![[./screenshots/getcap.png]]
 
 With that discovery, a simple binary privilege escalation exploit will allow the attacker to become the root user and obtain the sixth and final flag.
-![[privesc.png]]
+![[./screenshots/privesc.png]]
