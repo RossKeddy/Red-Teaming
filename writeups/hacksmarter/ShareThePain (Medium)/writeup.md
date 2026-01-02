@@ -56,6 +56,7 @@ Fortunately, this user was utilizing a weak password, allowing it to be cracked 
  Revealing the `bob.ross` password to be `137Password123!@#`
  
 ![Cracking bob.ross's NTLMv2 Hash](./screenshots/hashcat1.png)
+
 ![Cracked Password](./screenshots/hashcat2.png)
 
 The attacker confirms that this user has been pwned with [NetExec](https://www.netexec.wiki/).

@@ -66,6 +66,7 @@ Crackstation reveals two of the md5 hashes are easily cracked.
 The attacker utilizes hashcat to confirm. [Hashcat](https://github.com/hashcat/hashcat) only cracks one password.
 
 ![Hashcat Confirmation](./screenshots/hashcat1.png)
+
 ![Hashcat Cracked Passwords](./screenshots/hashcat2.png)
 
 ```
@@ -165,6 +166,7 @@ Since the attacker discovered `r.haggard` is kerberoastable. They can dump the t
 Cracking the hash was easy. The attacker marks this user as owned in [BloodHound](https://github.com/SpecterOps/BloodHound).
 
 ![Offline Kerberoast Cracking](./screenshots/kerberoastcrack.png)
+
 ![Password Obtained from Kerberoasting](./screenshots/kerberoast2.png)
 
 With [BloodHound](https://github.com/SpecterOps/BloodHound) the attacker can see `r.haggard` has outbound object control on h.potch.
@@ -204,6 +206,7 @@ Once the file is put into the share responder will begin capturing hashes. NTLMv
 The password ended up being easily cracked and further lateral movement was possible.
 
 ![Cracking Poisoned User's NTLMv2 Hash](./screenshots/hashcatgrangon.png)
+
 ![Cracked Password](./screenshots/grangoncracked.png)
 
 The attacker confirms `h.grangon` is compromised and marks the object as owned in [BloodHound](https://github.com/SpecterOps/BloodHound). This user is also a member of `Remote Management Users` meaning the attacker now has direct access to the machine using evil-winrm.

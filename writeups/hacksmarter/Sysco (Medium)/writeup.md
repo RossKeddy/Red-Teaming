@@ -76,6 +76,7 @@ Utilizing this list, the attacker performs a common ASREP Roast attack to extrac
 With the hash offline, the attacker will use [hashcat](https://hashcat.net/hashcat/) to bruteforce it.
 
 ![Cracking ASREP Hashes](./screenshots/hashcat1.png)
+
 ![Cracked Hash](./screenshots/cracked.png)
 
 With the hash successfully cracked:
@@ -108,6 +109,7 @@ Opening up the router config file reveals an encrypted password. `$1$mERr$isugnY
 Utilizing [hashcat](https://hashcat.net/hashcat/) this hash was trivial to crack. Revealing the password of `Chocolate1`.
 
 ![Cracking Secret with Hashcat](./screenshots/crackrouterhash.png)
+
 ![Cracked Hash](./screenshots/chocolate1.png)
 
 Spraying the password adds `Lainey.Moore` to the pwn3d list. This user gets marked as Owned in [BloodHound](https://bloodhound.specterops.io/get-started/introduction). Access to their mail account did not seem possible.
@@ -121,6 +123,7 @@ This user yields remote access and the first flag.
 Browsing files reveals a .lnk with stored credentials `netadmin:5y5coSmarter2025!!!
 
 ![Credentials Obtained from .lnk File](./screenshots/puttycreds.png)
+
 ![Credentials Obtained from .lnk File](./screenshots/puttycreds2.png)
 
 Spraying this password reveals it was reused with `Greg.Shields`. This is an escalation path to Domain Admin.
