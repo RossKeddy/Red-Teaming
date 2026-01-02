@@ -1,5 +1,5 @@
 # Ascension
-![Logo](writeups/hacksmarter/ascension%20%28easy%29/screenshots/logo.webp)
+![Logo](./screenshots/logo.webp)
 ## Scenario
 
 This is the Capstone Challenge for Ryan's [Hacking Linux course on Simply Cyber Academy](https://academy.simplycyber.io/l/pdp/linux-hacking). As a result, this lab isn't strictly focused on realism, but rather teaching proper enumeration, lateral movement, and privilege escalation on a Linux machine.
