@@ -1,5 +1,6 @@
 # Table of contents
 
+
 ### Red Teaming
 * [Welcome](red%20teaming/README.md)
 ---
@@ -150,7 +151,7 @@
 	* [Credentialed Enumeration](3%20-%20post%20exploitation/credentialed%20enumeration.md)
 
 ### Writeups
-*  [Hack Smarter](writeups/hack%20smarter/README.md)
+*  [Hack Smarter](writeups/hacksmarter/README.md)
 	* [Ascension (Easy)](writeups/hacksmarter/ascension%20%28easy%29/writeup.md)
 	* [BankSmarter (Medium)](writeups/hacksmarter/banksmarter%20%28medium%29/writeup.md)
 	* [BuildingMagic (Easy)](writeups/hacksmarter/buildingmagic%20%28easy%29/writeup.md)
