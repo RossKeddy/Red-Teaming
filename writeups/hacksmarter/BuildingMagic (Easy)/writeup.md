@@ -63,8 +63,8 @@ Crackstation reveals two of the md5 hashes are easily cracked.
 ![[crackstation.png]]
 
 The attacker utilizes hashcat to confirm. [Hashcat](https://github.com/hashcat/hashcat) only cracks one password.
-![[hacksmarter/BuildingMagic (Easy)/screenshots/hashcat1.png]]
-![[hacksmarter/BuildingMagic (Easy)/screenshots/hashcat2.png]]
+![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hashcat1.png]]
+![[writeups/hacksmarter/buildingmagic (easy)/screenshots/hashcat2.png]]
 
 ```
 c4a21c4d438819d73d24851e7966229c:r.widdleton:lilronron
@@ -166,12 +166,12 @@ Utilizing [NetExec](https://www.netexec.wiki/) the attacker confirms successful 
 ![[hpotch.png]]
 
 With this user compromised, the attacker will use the credentials to enumerate shares. The account has READ/WRITE on `File-Share` so this will be the next target.
-![[hacksmarter/BuildingMagic (Easy)/screenshots/shares.png]]
+![[writeups/hacksmarter/buildingmagic (easy)/screenshots/shares.png]]
 
 Greenwolf provides an excellent [tool](https://github.com/Greenwolf/ntlm_theft), ntlm_theft, which can be used in conjunction with [Responder](https://github.com/SpiderLabs/Responder) to capture NTLM authentication. An attacker can generate malicious file payloads (such as LNK or SCF files) and upload them to a network share. When a user browses or interacts with the share, the payload can trigger an outbound NTLM authentication attempt, which Responder can then capture or relay.
-![[hacksmarter/BuildingMagic (Easy)/screenshots/ntlmtheft.png]]
+![[writeups/hacksmarter/buildingmagic (easy)/screenshots/ntlmtheft.png]]
 
-![[hacksmarter/BuildingMagic (Easy)/screenshots/responder.png]]
+![[writeups/hacksmarter/buildingmagic (easy)/screenshots/responder.png]]
 
 ![[smbpoison.png]]
 

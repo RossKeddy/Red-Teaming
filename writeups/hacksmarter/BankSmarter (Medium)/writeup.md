@@ -1,5 +1,5 @@
 # BankSmarter
-![[logo.jpg]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/logo.jpg]]
 
 
 ## Scenario
@@ -54,7 +54,7 @@ With these credentials access to ssh is possible
 
 In the home directory there is a script owned by `scott.weiland`. Using pspy it's possible to see that the script is running on a timer. Since this script is in our user's home directory, the attacker can simply remove it and replace it with a reverse shell that will get executed.
 ![[userscript.png]]
-![[hacksmarter/BankSmarter (Medium)/screenshots/pspy64.png]]
+![[writeups/hacksmarter/banksmarter (medium)/screenshots/pspy64.png]]
 
 Utilizing Penelope the reverse shell is caught.
 ![[penelope.png]]

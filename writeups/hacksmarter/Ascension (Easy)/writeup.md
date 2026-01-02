@@ -60,7 +60,7 @@ The attacker identifies some database credentials that will be utilized later
 ![[dbcreds.png]]
 
 `linpeas.sh` revealed nothing of interest. `pspy64` revealed the following script running as `UID=1002`:
-![[hacksmarter/Ascension (Easy)/screenshots/pspy64.png]]
+![[writeups/hacksmarter/ascension (easy)/screenshots/pspy64.png]]
 
 ## Lateral Movement
 However no files exist there, the attacker will create `backup.sh` and populate it with a reverse shell. This file is an attempt to gain shell as user2 (UID 1002).

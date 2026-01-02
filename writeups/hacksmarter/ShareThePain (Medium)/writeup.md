@@ -1,5 +1,5 @@
 # ShareThePain
-![[hacksmarter/ShareThePain (Medium)/screenshots/logo.jpg]]
+![[writeups/hacksmarter/sharethepain (medium)/screenshots/logo.jpg]]
 ## Scope and Objective
 
 **Objective:** You're a **penetration tester** on the **Hack Smarter Red Team**. Your mission is to infiltrate and seize control of the client's entire Active Directory environment. This isn't just a test; it's a full-scale assault to expose and exploit every vulnerability.
@@ -31,15 +31,15 @@ Next, the attacker checks if anonymous authentication is enabled on the domain.
 ![[anonauth.png]]
 
 With anonymous authentication enabled, the attacker enumerates the available domain shares. This reveals that `\Share` has anonymous READ/WRITE permissions allowed.
-![[hacksmarter/ShareThePain (Medium)/screenshots/shares.png]]
+![[writeups/hacksmarter/sharethepain (medium)/screenshots/shares.png]]
 
 ## Exploitation
 
 Identifying this becomes a classic attack using Greenwolf's ntlm_theft toolkit. First, the attacker will start Responder.
-![[hacksmarter/ShareThePain (Medium)/screenshots/responder.png]]
+![[writeups/hacksmarter/sharethepain (medium)/screenshots/responder.png]]
 
 Then utilizing the aforementioned tool, generate some payloads.
-![[hacksmarter/ShareThePain (Medium)/screenshots/ntlmtheft.png]]
+![[writeups/hacksmarter/sharethepain (medium)/screenshots/ntlmtheft.png]]
 
 Connect to the share and put one of the files there.
 ![[urgentlnk.png]]
@@ -49,8 +49,8 @@ Immediately the attacker sees `HACK\bob.ross` get poisoned with Responder. NTLMv
 
 Fortunately, this user was utilizing a weak password, allowing it to be cracked in just a few seconds.
  Revealing the `bob.ross` password to be `137Password123!@#`
- ![[hacksmarter/ShareThePain (Medium)/screenshots/hashcat1.png]]
-![[hacksmarter/ShareThePain (Medium)/screenshots/hashcat2.png]]
+ ![[writeups/hacksmarter/sharethepain (medium)/screenshots/hashcat1.png]]
+![[writeups/hacksmarter/sharethepain (medium)/screenshots/hashcat2.png]]
 
 The attacker confirms that this user has been pwned with NetExec.
 ![[bobrosspwned.png]]

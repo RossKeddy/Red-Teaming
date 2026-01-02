@@ -72,7 +72,7 @@ Lainey.Moore
 Utilizing this list, the attacker performs a common ASREP Roast attack to extract a hash for offline cracking.
 ![[asrepped.png]]
 
-![[hacksmarter/Sysco (Medium)/screenshots/hashcat1.png]]
+![[writeups/hacksmarter/sysco (medium)/screenshots/hashcat1.png]]
 ![[cracked.png]]
 
 With the hash successfully cracked:
