@@ -27,66 +27,66 @@ Starting from top to bottom, the attacker tries logging in with the default `ftp
 ![FTP Login](./screenshots/ftp.png)
 
 The list is fairly generic, and all of these options will be available with `rockyou.txt`.
-![pwlist](./screenshots/passwords.png)
+![Password List](./screenshots/passwords.png)
 
 The attacker will pivot to NFS shares. Checking the mounts reveals one is available.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user1nfs.png]]
+![Showmount](./screenshots/user1nfs.png)
 
 The attacker will mount this locally for enumeration.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user1nfsmounting.png]]
+![Mounting the External Share](./screenshots/user1nfsmounting.png)
 
 Inside the share is a key pair. 
-![[writeups/hacksmarter/ascension (easy)/screenshots/nfscredfiles.png]]
+![SSH Keypair](./screenshots/nfscredfiles.png)
 ## Privilege Escalation
 The private key requires a passwords, therefor the attacker will utilize [ssh2john](https://github.com/openwall/john/blob/bleeding-jumbo/run/ssh2john.py) to attempt to crack it and obtain access.
-![[writeups/hacksmarter/ascension (easy)/screenshots/ssh2john.png]]
+![Converting Keypair to Crackable Hash](./screenshots/ssh2john.png)
 
 Utilizing [john](https://www.openwall.com/john/) on the converted hash reveals the keypair password is `sammie1`
-![[writeups/hacksmarter/ascension (easy)/screenshots/cracker.png]]
+![Cracking Hash with John](./screenshots/cracker.png)
 
 Armed with the password the attacker has compromised the user1 account and retrieves the flag.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user1flag.png]]
+![SSH with User1](./screenshots/user1flag.png)
 
 ### Credentialed Enumeration
 Checking `/etc/passwd` reveals some interesting users.
-![[writeups/hacksmarter/ascension (easy)/screenshots/passwd.png]]
+![/etc/password Users](./screenshots/passwd.png)
  
- With the list of users obtained, the attacker will password spray the `ftpuser` using [hydra](https://github.com/vanhauser-thc/thc-hydra) with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![[writeups/hacksmarter/ascension (easy)/screenshots/ftpuser.png]]
+ With the list of users obtained, the attacker will password spray the `ftpuser` using [hydra](https://github.com/vanhauser-thc/thc-hydra) with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. ![Hydra Bruteforce with ftpuser Compromise](./screenshots/ftpuser.png)
 
 The attacker will try a standard login to that user which was successful and obtains the `ftpuser` flag.
-![[writeups/hacksmarter/ascension (easy)/screenshots/ftpuserflag.png]]
+![ftpuser Flag](./screenshots/ftpuserflag.png)
 
 The attacker identifies some database credentials that will be utilized later
-![[writeups/hacksmarter/ascension (easy)/screenshots/dbcreds.png]]
+![DB Credentials](./screenshots/dbcreds.png)
 
 [linpeas](https://github.com/peass-ng/PEASS-ng/tree/master/linPEAS) revealed nothing of interest. [pspy64](https://github.com/DominicBreuker/pspy) revealed the following script running as `UID=1002`:
-![[writeups/hacksmarter/ascension (easy)/screenshots/pspy64.png]]
+![PsPy64 Enumeration](./screenshots/pspy64.png)
 
 ## Lateral Movement
 However no files exist in `/tmp`, the attacker will create `backup.sh` and populate it with a reverse shell. This file is an attempt to gain shell as user2 (UID 1002).
-![[writeups/hacksmarter/ascension (easy)/screenshots/tmpdir.png]]
+![Contents of /tmp](./screenshots/tmpdir.png)
 
-![[writeups/hacksmarter/ascension (easy)/screenshots/filereplacement.png]]
+![Exploitation of backup.sh](./screenshots/filereplacement.png)
 
 Starting a listener on [penelope](https://github.com/brightio/penelope) and waiting eventually yields a shell. This is successful because the script is running on a timer and the attacker was able to write to `/tmp/` and force it to run anything the attacker wants.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user2shell.png]]
+![Penelope Catching Shell](./screenshots/user2shell.png)
 
 Now as user2 the second flag is obtained.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user2flag.png]]
+![User2 Compromised](./screenshots/user2flag.png)
 
 ## Lateral Movement
 Now the attacker will utilize the DB credentials from earlier. Issuing a `ss -tupln` reveals SQL is running on the standard port, therefor they will try and connect. Displaying the tables yields flags and users. The attacker will select all from those tables and utilize them for further lateral movement.
-![[writeups/hacksmarter/ascension (easy)/screenshots/sqlpwned.png]]
+![Retrieving User3 from Database](./screenshots/sqlpwned.png)
 
 With those credentials found, the attacker will try and login as that user.
-![[writeups/hacksmarter/ascension (easy)/screenshots/user3pwned.png]]
+![User3 Compromised](./screenshots/user3pwned.png)
 
 ## Privilege Escalation
 Interestingly in the user3 home directory, there is a python3 binary. This binary does not have SUID set.
-![[writeups/hacksmarter/ascension (easy)/screenshots/python3getcap.png]]
+![Python Binary](./screenshots/python3getcap.png)
 
 However, this binary has the Linux CAP_SETUID capability set, so it can be used as a backdoor to maintain privileged access by manipulating its own process UID.
-![[writeups/hacksmarter/ascension (easy)/screenshots/getcap.png]]
+![setuid=ep Set on Python Binary](./screenshots/getcap.png)_
 
 With that discovery, a simple binary privilege escalation exploit will allow the attacker to become the root user and obtain the sixth and final flag.
-![[writeups/hacksmarter/ascension (easy)/screenshots/privesc.png]]
+![Full Machine Compromise](./screenshots/privesc.png)
