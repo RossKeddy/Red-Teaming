@@ -148,7 +148,8 @@ python3 pygpoabuse.py 'SYSCO.LOCAL/greg.shields:5y5coSmarter2025!!!' -dc-ip 10.1
 
 The attacker set themselves as the owner and added genericAll to themselves. Once done they utilized [pygpoabuse](https://github.com/Hackndo/pyGPOAbuse) to create a scheduled task on the machine to grant themselves local administrator.
 
-![[gpoabuse.png]]
+![Creation of Malicious Scheduled Task](./screenshots/gpoabuse.png)
+
 ![Confirming User Privilege Escalation](./screenshots/pwn3dbox.png)
 
 It was successful so the attacker simply dumps the SAM remotely and authenticates with the Administrator hash. Fully compromising the domain.
