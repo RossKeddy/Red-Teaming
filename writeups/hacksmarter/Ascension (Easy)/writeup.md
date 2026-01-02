@@ -1,5 +1,5 @@
 # Ascension
-![Logo](/writeups/hacksmarter/ascension%20%28easy%29/screenshots/logo.webp)
+![Logo](writeups/hacksmarter/ascension%20%28easy%29/screenshots/logo.webp)
 ## Scenario
 
 This is the Capstone Challenge for Ryan's [Hacking Linux course on Simply Cyber Academy](https://academy.simplycyber.io/l/pdp/linux-hacking). As a result, this lab isn't strictly focused on realism, but rather teaching proper enumeration, lateral movement, and privilege escalation on a Linux machine.
@@ -24,7 +24,7 @@ PORT      STATE SERVICE  VERSION
 ```
 
 Starting from top to bottom, the attacker tries logging in with the default `ftp:ftp` credentials and successfully compromised the FTP service. Inside was an interesting file labeled `pwlist.txt`
-![FTP Login](/writeups/hacksmarter/ascension%20%28easy%29/screenshots/ftp.png)
+![FTP Login](writeups/hacksmarter/ascension%20%28easy%29/screenshots/ftp.png)
 
 The list is fairly generic, and all of these options will be available with `rockyou.txt`.
 ![pwlist](/writeups/hacksmarter/ascension%20%28easy%29/screenshots/passwords.png)
