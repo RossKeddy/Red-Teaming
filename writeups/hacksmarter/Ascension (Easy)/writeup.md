@@ -62,6 +62,7 @@ Checking `/etc/passwd` reveals some interesting users.
 ![/etc/password Users](./screenshots/passwd.png)
  
  With the list of users obtained, the attacker will password spray the `ftpuser` using [hydra](https://github.com/vanhauser-thc/thc-hydra) with the passwords obtained earlier. This yields a valid login to the ftp server but there's nothing of interest there. 
+ 
  ![Hydra Bruteforce with ftpuser Compromise](./screenshots/ftpuser.png)
 
 The attacker will try a standard login to that user which was successful and obtains the `ftpuser` flag.
