@@ -153,4 +153,5 @@ The attacker set themselves as the owner and added genericAll to themselves. Onc
 It was successful so the attacker simply dumps the SAM remotely and authenticates with the Administrator hash. Fully compromising the domain.
 
 ![Dumping the SAM Database](./screenshots/dumpsam.png)
+
 ![Connecting to the Host with the Administrator Hash](./screenshots/done.png)
