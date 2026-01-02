@@ -151,8 +151,8 @@
 
 ### Writeups
 *  [Hack Smarter](writeups/hack%20smarter/README.md)
-	* [Ascension (Easy)](writeups/hack%20smarter/ascension%20%28easy%29/writeup.md)
-	* [BankSmarter (Medium)](writeups/hack%20smarter/banksmarter%20%28medium%29/writeup.md)
-	* [BuildingMagic (Easy)](writeups/hack%20smarter/buildingmagic%20%28easy%29/writeup.md)
-	* [ShareThePain (Medium)](writeups/hack%20smarter/sharethepain%20%28medium%29/writeup.md)
-	* [Sysco (Medium)](writeups/hack%20smarter/sysco%20%28medium%29/writeup.md)
+	* [Ascension (Easy)](writeups/hacksmarter/ascension%20%28easy%29/writeup.md)
+	* [BankSmarter (Medium)](writeups/hacksmarter/banksmarter%20%28medium%29/writeup.md)
+	* [BuildingMagic (Easy)](writeups/hacksmarter/buildingmagic%20%28easy%29/writeup.md)
+	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/writeup.md)
+	* [Sysco (Medium)](writeups/hacksmarter/sysco%20%28medium%29/writeup.md)
