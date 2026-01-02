@@ -24,10 +24,10 @@ PORT      STATE SERVICE  VERSION
 ```
 
 Starting from top to bottom, the attacker tries logging in with the default `ftp:ftp` credentials and successfully compromised the FTP service. Inside was an interesting file labeled `pwlist.txt`
-![FTP Login](writeups/hacksmarter/ascension%20%28easy%29/screenshots/ftp.png)
+![FTP Login](./screenshots/ftp.png)
 
 The list is fairly generic, and all of these options will be available with `rockyou.txt`.
-![pwlist](/writeups/hacksmarter/ascension%20%28easy%29/screenshots/passwords.png)
+![pwlist](./screenshots/passwords.png)
 
 The attacker will pivot to NFS shares. Checking the mounts reveals one is available.
 ![[writeups/hacksmarter/ascension (easy)/screenshots/user1nfs.png]]
