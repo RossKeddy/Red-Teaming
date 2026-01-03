@@ -1,5 +1,5 @@
 # Odyssey
-![[writeups/hacksmarter/odyssey (hard)/screenshots/logo.png]]
+![](./screenshots/logo.png)
 ## Objective / Scope
 
 You are a member of the **Hack Smarter Red Team** and have been assigned to perform a black-box penetration test against a client's critical infrastructure. There are three machines in scope: one Linux web server and two Windows enterprise hosts.
