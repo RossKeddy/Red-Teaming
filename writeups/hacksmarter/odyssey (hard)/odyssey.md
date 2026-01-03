@@ -538,6 +538,7 @@ SMB         10.1.225.54     445    EC2AMAZ-NS87CNK  The command completed succes
 Due to the connection struggles, the attacker attempted to use SharpHound. Utilizing the same methods above with mounting the drive and using RDP, the attacker will upload SharpHound.exe.
 
 Firstly let's tell Defender to go away:
+
 ![Disabling Defender](./screenshots/goaway.png)
 
 SharpHound collection failed:
