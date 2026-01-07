@@ -157,4 +157,5 @@
 	* [BuildingMagic (Easy)](writeups/hacksmarter/buildingmagic%20%28easy%29/buildingmagic.md)
 	* [Odyssey (Hard)](writeups/hacksmarter/odyssey%20%28hard%29/odyssey.md)
 	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/sharethepain.md)
+	* [Slayer (Easy)](writeups/hacksmarter/slayer%20%28easy%29/slayer.md)
 	* [Sysco (Medium)](writeups/hacksmarter/sysco%20%28medium%29/sysco.md)
