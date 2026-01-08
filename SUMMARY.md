@@ -39,7 +39,7 @@
 		* [623 - IPMI](1%20-%20enumeration/services/623%20-%20IPMI.md)
 		* [1433 - MSSQL](1%20-%20enumeration/services/1433%20-%20MSSQL.md)
 		* [3306 - SQL](1%20-%20enumeration/services/3306%20-%20SQL.md)
-		* [3389 - RDP](1%20-%20enumeration/services/3306%20-%20RDP.md)
+		* [3389 - RDP](1%20-%20enumeration/services/3389%20-%20RDP.md)
 		* [5985 - WinRM](1%20-%20enumeration/services/5985%20-%20WinRM.md)
 	* [AccessChk](1%20-%20enumeration/accesschk.md)
 	* [DHCP](1%20-%20enumeration/dhcp.md)
