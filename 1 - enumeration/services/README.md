@@ -33,6 +33,8 @@ nmap -T5 -A $ip
 
 
 export IP=
+
+rustscan -a 10.1.26.75
 rustscan --ulimit 10000 -a $IP -- -sCTV -Pn
 ```
 
