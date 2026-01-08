@@ -101,4 +101,5 @@ xfreerdp3 /v:10.1.26.75 /d:'./' /u:'Administrator' /p:'ebz0yxy3txh9BDE*yeh' /cer
 ```
 
 ![RDP Session as Administrator](./screenshots/root.png)
+
 *Defender popped from trying to use psexec.py to connect*
