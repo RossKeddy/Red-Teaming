@@ -155,6 +155,7 @@
 	* [Ascension (Easy)](writeups/hacksmarter/ascension%20%28easy%29/ascension.md)
 	* [BankSmarter (Medium)](writeups/hacksmarter/banksmarter%20%28medium%29/banksmarter.md)
 	* [BuildingMagic (Easy)](writeups/hacksmarter/buildingmagic%20%28easy%29/buildingmagic.md)
+	* [NorthBridge Systems (Hard)](writeups/hacksmarter/northbridge%20systems%20%28hard%29/northbridge%20systems.md)
 	* [Odyssey (Hard)](writeups/hacksmarter/odyssey%20%28hard%29/odyssey.md)
 	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/sharethepain.md)
 	* [Slayer (Easy)](writeups/hacksmarter/slayer%20%28easy%29/slayer.md)
