@@ -36,6 +36,7 @@
 		* [139/445 - SMB](1%20-%20enumeration/services/139%20-%20SMB.md)
 		* [161 - SNMP](1%20-%20enumeration/services/161%20-%20SNMP.md)
 		* [389/636 - LDAP/S](1%20-%20enumeration/services/389%20-%20LDAP.md)
+		* [500 - UDP](1%20-%20enumeration/services/500%20-%20IKE.md)
 		* [623 - IPMI](1%20-%20enumeration/services/623%20-%20IPMI.md)
 		* [1433 - MSSQL](1%20-%20enumeration/services/1433%20-%20MSSQL.md)
 		* [3306 - SQL](1%20-%20enumeration/services/3306%20-%20SQL.md)
@@ -160,3 +161,4 @@
 	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/sharethepain.md)
 	* [Slayer (Easy)](writeups/hacksmarter/slayer%20%28easy%29/slayer.md)
 	* [Sysco (Medium)](writeups/hacksmarter/sysco%20%28medium%29/sysco.md)
+	* [Triathlon (Hard)](writeups/hacksmarter/triathlon%20%28hard%29/triathlon.md)
