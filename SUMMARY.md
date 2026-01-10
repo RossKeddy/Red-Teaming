@@ -161,4 +161,5 @@
 	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/sharethepain.md)
 	* [Slayer (Easy)](writeups/hacksmarter/slayer%20%28easy%29/slayer.md)
 	* [Sysco (Medium)](writeups/hacksmarter/sysco%20%28medium%29/sysco.md)
+	* [Talisman (Medium)](writeups/hacksmarter/talisman%20%28medium%29/talisman.md)
 	* [Triathlon (Hard)](writeups/hacksmarter/triathlon%20%28hard%29/triathlon.md)
