@@ -1,4 +1,4 @@
-# Building Magic
+# BuildingMagic
 ![](./screenshots/buildingmagic-logo.png)
 ## Scope and Objective
 
