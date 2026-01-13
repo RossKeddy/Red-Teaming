@@ -87,7 +87,7 @@ With the `CREATE ANY DIRECTORY` and `DROP ANY DIRECTORY` privileges, the user ca
 
 The attacker can check where the folder is mounted. In this case it's `/opt/data`
 
-![[sql-6.png]]
+![](./screenshots/sql-6.png)
 
 ## Failed Exploitation 
 
@@ -124,9 +124,9 @@ SELECT * FROM ext_exploit;
 
 The attacker can abuse the `CREATE ANY DIRECTORY` privilege to link directories to SQL and then reading files from them. This allows the attacker to read an ssh private key from `/home/oracle/.ssh`
 
-![[sql-7.png]]
+![](./screenshots/sql-7.png)
 
-![[sql-8.png]]
+![](./screenshots/sql-8.png)
 
 ```
 -----BEGIN OPENSSH PRIVATE KEY-----
