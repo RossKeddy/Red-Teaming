@@ -1,6 +1,7 @@
-# Table of contents
+# Table of Contents
 
 ---
+[Intro](README.md)
 ### The Basics
 * [Setup](0%20-%20setup/README.md)
 	* [OSINT](0%20-%20setup/osint/README.md)
