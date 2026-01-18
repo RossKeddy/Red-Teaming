@@ -27,11 +27,7 @@ PORT      STATE SERVICE       VERSION
 5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 ```
 
-Next, the attacker checks if anonymous authentication is enabled on the domain.
-
-![Checking for Anonymous Authentication](./screenshots/anonauth.png)
-
-With anonymous authentication enabled, the attacker enumerates the available domain shares. This reveals that `\Share` has anonymous READ/WRITE permissions allowed.
+Next, the attacker checks if anonymous authentication is enabled on any shares. With anonymous authentication enabled, the attacker enumerates the available domain shares. This reveals that `\Share` has anonymous READ/WRITE permissions allowed.
 
 ![Checking Accessible Shares Anonymously](./screenshots/shares.png)
 

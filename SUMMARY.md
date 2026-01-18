@@ -1,8 +1,5 @@
 # Table of contents
 
-
-### Red Teaming
-* [Welcome](red%20teaming/README.md)
 ---
 ### The Basics
 * [Setup](0%20-%20setup/README.md)
@@ -156,6 +153,7 @@
 	* [Ascension (Easy)](writeups/hacksmarter/ascension%20%28easy%29/ascension.md)
 	* [BankSmarter (Medium)](writeups/hacksmarter/banksmarter%20%28medium%29/banksmarter.md)
 	* [BuildingMagic (Easy)](writeups/hacksmarter/buildingmagic%20%28easy%29/buildingmagic.md)
+	* [Lumon Industries (Medium)](writeups/hacksmarter/lumonindustries%20%28medium%29/lumonindustries.md)
 	* [NorthBridge Systems (Hard)](writeups/hacksmarter/northbridge%20systems%20%28hard%29/northbridge%20systems.md)
 	* [Odyssey (Hard)](writeups/hacksmarter/odyssey%20%28hard%29/odyssey.md)
 	* [ShareThePain (Medium)](writeups/hacksmarter/sharethepain%20%28medium%29/sharethepain.md)

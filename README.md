@@ -1,4 +1,4 @@
-## Cheatsheet
+# Notes
 
  ![Flag](assets/hackermountain.jpg)
 ### Ross Keddy's Notes
