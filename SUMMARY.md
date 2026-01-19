@@ -150,6 +150,7 @@
 	* [Credentialed Enumeration](3%20-%20post%20exploitation/credentialed%20enumeration.md)
 
 ### Writeups
+*  [Custom](writeups/custom/goad/goad.md)
 *  [Hack Smarter](writeups/hacksmarter/README.md)
 	* [Ascension (Easy)](writeups/hacksmarter/ascension%20%28easy%29/ascension.md)
 	* [BankSmarter (Medium)](writeups/hacksmarter/banksmarter%20%28medium%29/banksmarter.md)
@@ -162,3 +163,6 @@
 	* [Sysco (Medium)](writeups/hacksmarter/sysco%20%28medium%29/sysco.md)
 	* [Talisman (Medium)](writeups/hacksmarter/talisman%20%28medium%29/talisman.md)
 	* [Triathlon (Hard)](writeups/hacksmarter/triathlon%20%28hard%29/triathlon.md)
+*  [HackTheBox](writeups/hackthebox/README.md)
+*  [Proving Grounds](writeups/proving%20grounds/README.md)
+	*  [Amaterasu](writeups/proving%20grounds/amaterasu%20%28easy%29/amaterasu.md)
