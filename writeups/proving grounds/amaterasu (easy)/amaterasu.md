@@ -1,6 +1,7 @@
 # Amaterasu
 
 ![](./screenshots/Non-WEB.svg)
+
 https://portal.offsec.com/machine/amaterasu-49068/overview
 ## Summary
 In this lab, you will exploit a file upload vulnerability in a custom REST API service to gain initial access as a low-privilege user. You will escalate privileges using Bash Gobbling combined with a vulnerable tar wildcard execution in a scheduled cron job to achieve root access.
