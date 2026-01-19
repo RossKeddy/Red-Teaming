@@ -1,10 +1,10 @@
 # Amaterasu
+
 ![](./screenshots/Non-WEB.svg)
 ## Summary
 In this lab, you will exploit a file upload vulnerability in a custom REST API service to gain initial access as a low-privilege user. You will escalate privileges using Bash Gobbling combined with a vulnerable tar wildcard execution in a scheduled cron job to achieve root access.
 
 ## Learning Objectives
-
 After completion of this lab, learners will be able to:
 
 - Perform port scanning and identify a REST API service using tools like nmap, curl, and dirb.
@@ -32,12 +32,15 @@ Service Info: OS: Unix
 ```
 
 Interestingly the http services are all on higher ports. Port 40080 seems fairly empty.
+
 ![](./screenshots/mozilla.png)
 
  However port 33414 has API endpoints.
+ 
 ![](./screenshots/restapi.png)
 
 The attacker can abuse the `http://192.168.182.249:33414/file-list?dir=/` endpoint to browse the filesystem. From here the attacker can discover the user.
+
 ![](./screenshots/homedir.png)
 
 ## Privilege Escalation
