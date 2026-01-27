@@ -1,1 +1,1 @@
-Machines provided by Offensive Security Proving Grounds ->  https://portal.offsec.com/my-learning/ - all content is for strictly educational purposes
+Machines provided by Offensive Security Proving Grounds ->  https://portal.offsec.com/my-learning/ - all content is for strictly for educational purposes

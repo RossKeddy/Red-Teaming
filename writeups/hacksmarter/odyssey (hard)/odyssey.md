@@ -67,14 +67,6 @@ PORT     STATE SERVICE VERSION
 
 <SNIP>
 ```
-
-The domain has been identified as `hsm.local`. The attacker will check for anonymous authentication.
-```bash
-➜ netexec smb hsm.local -u '' -p ''         
-SMB         10.1.88.121     445    DC01             [*] Windows 11 / Server 2025 Build 26100 x64 (name:DC01) (domain:hsm.local) (signing:True) (SMBv1:False) 
-SMB         10.1.88.121     445    DC01             [+] hsm.local\:
-```
-
 ## Web-01
 ### Enumeration
 Browsing to `http://web-01:5000` reveals the "Odyssey Portal".

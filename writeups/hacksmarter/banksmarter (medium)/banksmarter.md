@@ -41,7 +41,7 @@ PORT    STATE         SERVICE
 68/udp  open|filtered dhcpc
 135/udp open|filtered msrpc
 155/udp open|filtered netsc-dev
-==161/udp open          snmp==
+161/udp open          snmp
 ```
 
 With [snmpwalk](https://linux.die.net/man/1/snmpwalk) the attacker finds plaintext credentials:
