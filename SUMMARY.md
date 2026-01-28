@@ -175,6 +175,7 @@
 	* [Talisman (Medium)](writeups/hacksmarter/talisman%20%28medium%29/talisman.md)
 	* [Triathlon (Hard)](writeups/hacksmarter/triathlon%20%28hard%29/triathlon.md)
 *  [HackTheBox](writeups/hackthebox/README.md)
+	* [Active](writeups/hackthebox/retired/active%20%28easy%29/active.md)
 *  [Proving Grounds](writeups/proving%20grounds/README.md)
 	*  [Amaterasu](writeups/proving%20grounds/amaterasu%20%28easy%29/amaterasu.md)
 	* [Loly](writeups/proving%20grounds/loly%20%28medium%29/loly.md)
